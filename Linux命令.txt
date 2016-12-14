@@ -1,176 +1,176 @@
-grep(¹Ø¼ü×Ö: ½ØÈ¡) ÎÄ±¾ËÑ¼¯¹¤¾ß, ½áºÏÕýÔò±í´ïÊ½·Ç³£Ç¿´ó
-Ö÷Òª²ÎÊý []
--c : Ö»Êä³öÆ¥ÅäµÄÐÐ
--I : ²»Çø·Ö´óÐ¡Ð´
--h : ²éÑ¯¶àÎÄ¼þÊ±²»ÏÔÊ¾ÎÄ¼þÃû
--l : ²éÑ¯¶àÎÄ¼þÊ±, Ö»Êä³ö°üº¬Æ¥Åä×Ö·ûµÄÎÄ¼þÃû
--n : ÏÔÊ¾Æ¥ÅäµÄÐÐºÅ¼°ÐÐ
--v : ÏÔÊ¾²»°üº¬Æ¥ÅäÎÄ±¾µÄËùÓÐÐÐ(ÎÒ¾­³£ÓÃ³ýÈ¥grep±¾Éí)
-»ù±¾¹¤×÷·½Ê½: grep ÒªÆ¥ÅäµÄÄÚÈÝ ÎÄ¼þÃû, ÀýÈç:
-grep 'test' d* ÏÔÊ¾ËùÓÐÒÔd¿ªÍ·µÄÎÄ¼þÖÐ°üº¬testµÄÐÐ
-grep 'test' aa bb cc ÏÔÊ¾ÔÚ aa bb cc ÎÄ¼þÖÐ°üº¬testµÄÐÐ
-grep '[a-z]\{5}\' aa ÏÔÊ¾ËùÓÐ°üº¬×Ö·û´®ÖÁÉÙÓÐ5¸öÁ¬ÐøÐ¡Ð´×ÖÄ¸µÄ´®
+grep(å…³é”®å­—: æˆªå–) æ–‡æœ¬æœé›†å·¥å…·, ç»“åˆæ­£åˆ™è¡¨è¾¾å¼éžå¸¸å¼ºå¤§
+ä¸»è¦å‚æ•° []
+-c : åªè¾“å‡ºåŒ¹é…çš„è¡Œ
+-I : ä¸åŒºåˆ†å¤§å°å†™
+-h : æŸ¥è¯¢å¤šæ–‡ä»¶æ—¶ä¸æ˜¾ç¤ºæ–‡ä»¶å
+-l : æŸ¥è¯¢å¤šæ–‡ä»¶æ—¶, åªè¾“å‡ºåŒ…å«åŒ¹é…å­—ç¬¦çš„æ–‡ä»¶å
+-n : æ˜¾ç¤ºåŒ¹é…çš„è¡Œå·åŠè¡Œ
+-v : æ˜¾ç¤ºä¸åŒ…å«åŒ¹é…æ–‡æœ¬çš„æ‰€æœ‰è¡Œ(æˆ‘ç»å¸¸ç”¨é™¤åŽ»grepæœ¬èº«)
+åŸºæœ¬å·¥ä½œæ–¹å¼: grep è¦åŒ¹é…çš„å†…å®¹ æ–‡ä»¶å, ä¾‹å¦‚:
+grep 'test' d* æ˜¾ç¤ºæ‰€æœ‰ä»¥då¼€å¤´çš„æ–‡ä»¶ä¸­åŒ…å«testçš„è¡Œ
+grep 'test' aa bb cc æ˜¾ç¤ºåœ¨ aa bb cc æ–‡ä»¶ä¸­åŒ…å«testçš„è¡Œ
+grep '[a-z]\{5}\' aa æ˜¾ç¤ºæ‰€æœ‰åŒ…å«å­—ç¬¦ä¸²è‡³å°‘æœ‰5ä¸ªè¿žç»­å°å†™å­—æ¯çš„ä¸²
 
 
 grep
-1.ËÑÑ°ÌØ¶¨×Ö·û´®"the"
-×¢: nÎªÏÔÊ¾ÐÐºÅ
-¸´ÖÆ´úÂë ´úÂëÈçÏÂ:
+1.æœå¯»ç‰¹å®šå­—ç¬¦ä¸²"the"
+æ³¨: nä¸ºæ˜¾ç¤ºè¡Œå·
+å¤åˆ¶ä»£ç  ä»£ç å¦‚ä¸‹:
 # grep -n 'the' regular_express.txt
-2.·´ÏòËÑÑ°ÌØ¶¨×Ö·û´®"the"
-¸´ÖÆ´úÂë ´úÂëÈçÏÂ:
+2.åå‘æœå¯»ç‰¹å®šå­—ç¬¦ä¸²"the"
+å¤åˆ¶ä»£ç  ä»£ç å¦‚ä¸‹:
 # grep -vn 'the' regular_express.txt
-3.È¡µÃÈÎÒâ´óÐ¡Ð´"the"µÄÕâ¸ö×Ö·û´®
-¸´ÖÆ´úÂë ´úÂëÈçÏÂ:
+3.å–å¾—ä»»æ„å¤§å°å†™"the"çš„è¿™ä¸ªå­—ç¬¦ä¸²
+å¤åˆ¶ä»£ç  ä»£ç å¦‚ä¸‹:
 # grep -in 'the' regular_express.txt
-4.ÀûÓÃÀ¨ºÅ [] À´ËÑÑ°¼¯ºÏ×Ö·û
-ËÑË÷test»òtasteÕâÁ½¸öµ¥´ÊÊ±£¬·¢ÏÖËûÃÇÓÐ¹²Í¬µÄ't?st',ËùÒÔ¿ÉÒÔÕâÃ´ËÑÑ°
-¸´ÖÆ´úÂë ´úÂëÈçÏÂ:
+4.åˆ©ç”¨æ‹¬å· [] æ¥æœå¯»é›†åˆå­—ç¬¦
+æœç´¢testæˆ–tasteè¿™ä¸¤ä¸ªå•è¯æ—¶ï¼Œå‘çŽ°ä»–ä»¬æœ‰å…±åŒçš„'t?st',æ‰€ä»¥å¯ä»¥è¿™ä¹ˆæœå¯»
+å¤åˆ¶ä»£ç  ä»£ç å¦‚ä¸‹:
 # grep -n 't[ae]st' regular_express.txt
 
-ÕâÑùÆäÊµ¾ÍÊÇÔÚÕÒt[a]stºÍt[e]stÕâÁ½¸ö·Ö¿ªµÄ×Ö·û
-Èç¹ûËÑË÷ÓÐ oo µÄ×Ö·ûÊ±£¬Ôò¿ÉÒÔÊ¹ÓÃ£º
-¸´ÖÆ´úÂë ´úÂëÈçÏÂ:
+è¿™æ ·å…¶å®žå°±æ˜¯åœ¨æ‰¾t[a]stå’Œt[e]stè¿™ä¸¤ä¸ªåˆ†å¼€çš„å­—ç¬¦
+å¦‚æžœæœç´¢æœ‰ oo çš„å­—ç¬¦æ—¶ï¼Œåˆ™å¯ä»¥ä½¿ç”¨ï¼š
+å¤åˆ¶ä»£ç  ä»£ç å¦‚ä¸‹:
 # grep -n 'oo' regular_express.txt
 
-Èç¹ûËÑË÷ooÊ±²»ÏëËÑµ½ oo Ç°ÃæÓÐ g µÄ»°£¬ÎÒÃÇ¿ÉÒÔÀûÓÃ·´ÏòÑ¡Ôñ[^]À´´ï³É:
-¸´ÖÆ´úÂë ´úÂëÈçÏÂ:
+å¦‚æžœæœç´¢ooæ—¶ä¸æƒ³æœåˆ° oo å‰é¢æœ‰ g çš„è¯ï¼Œæˆ‘ä»¬å¯ä»¥åˆ©ç”¨åå‘é€‰æ‹©[^]æ¥è¾¾æˆ:
+å¤åˆ¶ä»£ç  ä»£ç å¦‚ä¸‹:
 # grep -n '[^g]oo'  regular_express.txt
 
-Èç¹ûËÑË÷ooÇ°Ãæ²»ÏëÓÐÐ¡Ð´×Ö·û£¬Ôò£º
-¸´ÖÆ´úÂë ´úÂëÈçÏÂ:
+å¦‚æžœæœç´¢ooå‰é¢ä¸æƒ³æœ‰å°å†™å­—ç¬¦ï¼Œåˆ™ï¼š
+å¤åˆ¶ä»£ç  ä»£ç å¦‚ä¸‹:
 # grep -n '[^a-z]oo' regular_express.txt
 
-×¢: ´óÐ´Ó¢ÎÄ/Ð¡Ð´Ó¢ÎÄ/Êý×Ö ¿ÉÒÔÊ¹ÓÃ [a-z]/[A-Z]/[0-9]µÈ·½Ê½À´ÊéÐ´£¬Ò²¿ÉÒÔÐ´ÔÚÒ»Æð
-[a-zA-Z0-9]±íÊ¾ÒªÇó×Ö·û´®ÊÇÊý×ÖÒÔ¼°Ó¢ÎÄ
-Èç¹ûÎÒÃÇÒªÈ¡µÃÓÐÊý×ÖµÄÄÇÐÐ,Ôò£º
-¸´ÖÆ´úÂë ´úÂëÈçÏÂ:
+æ³¨: å¤§å†™è‹±æ–‡/å°å†™è‹±æ–‡/æ•°å­— å¯ä»¥ä½¿ç”¨ [a-z]/[A-Z]/[0-9]ç­‰æ–¹å¼æ¥ä¹¦å†™ï¼Œä¹Ÿå¯ä»¥å†™åœ¨ä¸€èµ·
+[a-zA-Z0-9]è¡¨ç¤ºè¦æ±‚å­—ç¬¦ä¸²æ˜¯æ•°å­—ä»¥åŠè‹±æ–‡
+å¦‚æžœæˆ‘ä»¬è¦å–å¾—æœ‰æ•°å­—çš„é‚£è¡Œ,åˆ™ï¼š
+å¤åˆ¶ä»£ç  ä»£ç å¦‚ä¸‹:
 # grep -n '[0-9]' regular_express.txt
 
-×¢£ºµ«¿¼ÂÇµ½ÓïÏµ¶Ô±àÂëË³ÐòµÄÓ°Ïì£¬Òò´Ë³ýÁËÁ¬Ðø±àÂëÊ¹ÓÃ¼õºÅ[-]Íâ£¬Ò²¿ÉÒÔÓÃ[:lower:]´úÌæa-z ÒÔ¼° [:digit:] ´úÌæ0-9 Ê¹ÓÃ
-¸´ÖÆ´úÂë ´úÂëÈçÏÂ:
+æ³¨ï¼šä½†è€ƒè™‘åˆ°è¯­ç³»å¯¹ç¼–ç é¡ºåºçš„å½±å“ï¼Œå› æ­¤é™¤äº†è¿žç»­ç¼–ç ä½¿ç”¨å‡å·[-]å¤–ï¼Œä¹Ÿå¯ä»¥ç”¨[:lower:]ä»£æ›¿a-z ä»¥åŠ [:digit:] ä»£æ›¿0-9 ä½¿ç”¨
+å¤åˆ¶ä»£ç  ä»£ç å¦‚ä¸‹:
 # grep -n '[^[:lower:]]oo' regular_express.txt
 # grep -n '[[:digit:]]' regular_express.txt
-5.ÏÔÊ¾ÐÐÊ×Îª'the'µÄ×Ö·û´®
-¸´ÖÆ´úÂë ´úÂëÈçÏÂ:
+5.æ˜¾ç¤ºè¡Œé¦–ä¸º'the'çš„å­—ç¬¦ä¸²
+å¤åˆ¶ä»£ç  ä»£ç å¦‚ä¸‹:
 # grep -n '^the' regular_express.txt
 
-ÏÔÊ¾ÐÐÊ×ÊÇÐ¡Ð´×Ö·û
-¸´ÖÆ´úÂë ´úÂëÈçÏÂ:
+æ˜¾ç¤ºè¡Œé¦–æ˜¯å°å†™å­—ç¬¦
+å¤åˆ¶ä»£ç  ä»£ç å¦‚ä¸‹:
 # grep -n '^[a-z]' regular_express.txt
-6.ÏÔÊ¾ÐÐÎ²Îªµã . µÄÄÇÒ»ÐÐ
-¸´ÖÆ´úÂë ´úÂëÈçÏÂ:
+6.æ˜¾ç¤ºè¡Œå°¾ä¸ºç‚¹ . çš„é‚£ä¸€è¡Œ
+å¤åˆ¶ä»£ç  ä»£ç å¦‚ä¸‹:
 # grep -n '\.$' regular_express.txt
-7.ÏÔÊ¾5-9ÐÐÊý¾Ý
-¸´ÖÆ´úÂë ´úÂëÈçÏÂ:
+7.æ˜¾ç¤º5-9è¡Œæ•°æ®
+å¤åˆ¶ä»£ç  ä»£ç å¦‚ä¸‹:
 # cat -An regular_express.txt |head -n 10 |tail -n 6
-8.ÏÔÊ¾¿Õ°×ÐÐ
-¸´ÖÆ´úÂë ´úÂëÈçÏÂ:
+8.æ˜¾ç¤ºç©ºç™½è¡Œ
+å¤åˆ¶ä»£ç  ä»£ç å¦‚ä¸‹:
 # grep -n '^$' regular_express.txt
-9.ÕÒ³ög??d×Ö·û´®£¬ÆðÍ·g½áÊødµÄËÄ¸ö×Ö·û´®
-¸´ÖÆ´úÂë ´úÂëÈçÏÂ:
+9.æ‰¾å‡ºg??då­—ç¬¦ä¸²ï¼Œèµ·å¤´gç»“æŸdçš„å››ä¸ªå­—ç¬¦ä¸²
+å¤åˆ¶ä»£ç  ä»£ç å¦‚ä¸‹:
 # grep -n 'g..d' regular_express.txt
-10. o*´ú±í¿Õ×Ö·û(¾ÍÊÇÓÐÃ»ÓÐ×Ö·û¶¼¿ÉÒÔ)»òÕßÒ»¸öµ½N¸öo×Ö·û£¬ËùÒÔgrep -n 'o*' regular_express.txt¾Í»á°ÑËùÓÐÐÐÈ«²¿´òÓ¡³öÀ´£¬
-11.oo*´ú±ío+¿Õ×Ö·û»òÕßÒ»¸öµ½N¸öo×Ö·û,ËùÒÔgrep -n 'oo*' regular_express.txt¾Í»á°Ño,oo,oooµÈµÄÐÐÈ«²¿´òÓ¡³öÀ´
-12."goo*g"´ú±ígog,goog,gooog...µÈ
-¸´ÖÆ´úÂë ´úÂëÈçÏÂ:
+10. o*ä»£è¡¨ç©ºå­—ç¬¦(å°±æ˜¯æœ‰æ²¡æœ‰å­—ç¬¦éƒ½å¯ä»¥)æˆ–è€…ä¸€ä¸ªåˆ°Nä¸ªoå­—ç¬¦ï¼Œæ‰€ä»¥grep -n 'o*' regular_express.txtå°±ä¼šæŠŠæ‰€æœ‰è¡Œå…¨éƒ¨æ‰“å°å‡ºæ¥ï¼Œ
+11.oo*ä»£è¡¨o+ç©ºå­—ç¬¦æˆ–è€…ä¸€ä¸ªåˆ°Nä¸ªoå­—ç¬¦,æ‰€ä»¥grep -n 'oo*' regular_express.txtå°±ä¼šæŠŠo,oo,oooç­‰çš„è¡Œå…¨éƒ¨æ‰“å°å‡ºæ¥
+12."goo*g"ä»£è¡¨gog,goog,gooog...ç­‰
+å¤åˆ¶ä»£ç  ä»£ç å¦‚ä¸‹:
 # grep -n 'goo*g' regular_express.txt
-13.ÕÒ³öº¬g...g×Ö·û´®µÄÐÐ
-×¢: .´ú±íÈÎÒâ×Ö·û, .*Ôò¾Í´ú±í¿Õ×Ö·û»òÕßÒ»¸öµ½N¸öÈÎÒâ×Ö·û
-¸´ÖÆ´úÂë ´úÂëÈçÏÂ:
+13.æ‰¾å‡ºå«g...gå­—ç¬¦ä¸²çš„è¡Œ
+æ³¨: .ä»£è¡¨ä»»æ„å­—ç¬¦, .*åˆ™å°±ä»£è¡¨ç©ºå­—ç¬¦æˆ–è€…ä¸€ä¸ªåˆ°Nä¸ªä»»æ„å­—ç¬¦
+å¤åˆ¶ä»£ç  ä»£ç å¦‚ä¸‹:
 # grep -n 'g.*g' regular_express.txt
-14.ÕÒ³öº¬ÓÐÊý×ÖµÄÐÐ
-¸´ÖÆ´úÂë ´úÂëÈçÏÂ:
+14.æ‰¾å‡ºå«æœ‰æ•°å­—çš„è¡Œ
+å¤åˆ¶ä»£ç  ä»£ç å¦‚ä¸‹:
 # grep -n '[0-9][0-9]*' regular_express.txt
 
-»ò# grep -n '[0-9]' regular_express.txt
-15.ÕÒ³öº¬Á½¸öoµÄ×Ö·û´®
-×¢:{}ÒòÎªÔÚshellÀïÓÐÌØÊâÒâÒå£¬ËùÒÔÐèÒª¼ÓÌøÍÑ·û\À´ÈÃÆäÊ§È¥ÒâÒå
-¸´ÖÆ´úÂë ´úÂëÈçÏÂ:
+æˆ–# grep -n '[0-9]' regular_express.txt
+15.æ‰¾å‡ºå«ä¸¤ä¸ªoçš„å­—ç¬¦ä¸²
+æ³¨:{}å› ä¸ºåœ¨shellé‡Œæœ‰ç‰¹æ®Šæ„ä¹‰ï¼Œæ‰€ä»¥éœ€è¦åŠ è·³è„±ç¬¦\æ¥è®©å…¶å¤±åŽ»æ„ä¹‰
+å¤åˆ¶ä»£ç  ä»£ç å¦‚ä¸‹:
 # grep -n 'o\{2\}'  regular_express.txt
 
-ÕÒ³ögºóº¬2µ½5¸öoÈ»ºóÒÔg½áÎ²µÄ×Ö·û´®
-¸´ÖÆ´úÂë ´úÂëÈçÏÂ:
+æ‰¾å‡ºgåŽå«2åˆ°5ä¸ªoç„¶åŽä»¥gç»“å°¾çš„å­—ç¬¦ä¸²
+å¤åˆ¶ä»£ç  ä»£ç å¦‚ä¸‹:
 # grep -n 'go\{2,5\}g'  regular_express.txt
 
-ÕÒ³ögºóº¬2ÒÔÉÏµÄoÈ»ºóÒÔg½áÎ²µÄ×Ö·û´®
-¸´ÖÆ´úÂë ´úÂëÈçÏÂ:
+æ‰¾å‡ºgåŽå«2ä»¥ä¸Šçš„oç„¶åŽä»¥gç»“å°¾çš„å­—ç¬¦ä¸²
+å¤åˆ¶ä»£ç  ä»£ç å¦‚ä¸‹:
 # grep -n 'go\{2,\}g'  regular_express.txt
 
-×Ü½á£º
-^word     ±íÊ¾´øËÑÑ°µÄ×Ö·û´®(word)ÔÚÐÐÊ×
-word$     ±íÊ¾´øËÑÑ°µÄ×Ö·û´®(word)ÔÚÐÐÎ²
-.         ±íÊ¾1¸öÈÎÒâ×Ö·û
-\         ±íÊ¾×ªÒå×Ö·û£¬ÔÚÌØÊâ×Ö·ûÇ°¼Ó\»á½«Ô­±¾µÄÌØÊâ×Ö·ûÒâÒåÈ¥³ý
-*         ±íÊ¾ÖØ¸´0µ½ÎÞÇî¶à¸öÇ°Ò»¸öRE(ÕýÔò±í´ïÊ½)×Ö·û
-[list]    ±íÊ¾ËÑË÷º¬ÓÐlistµÄ×Ö·û´®
-[n1-n2]   ±íÊ¾ËÑË÷Ö¸¶¨µÄ×Ö·û´®·¶Î§,ÀýÈç[0-9] [a-z] [A-Z]µÈ
-[^list]   ±íÊ¾·´Ïò×Ö·û´®µÄ·¶Î§,ÀýÈç[0-9]±íÊ¾·ÇÊý×Ö×Ö·û£¬[A-Z]±íÊ¾·Ç´óÐ´×Ö·û·¶Î§
-\{n,m\}   ±íÊ¾ÕÒ³önµ½m¸öÇ°Ò»¸öRE×Ö·û
-\{n,\}    ±íÊ¾n¸öÒÔÉÏµÄÇ°Ò»¸öRE×Ö·û
-egrep×Ü½á:
-+    ±íÊ¾ÖØ¸´Ò»¸ö»òÒ»¸öÒÔÉÏµÄÇ°Ò»¸öRE×Ö·û
-·¶Àý:egrep 'go+d' regular_express.txt
-±íÊ¾ËÑÑ°(god)(good)(goood)...µÈµÈ×Ö·û´®£¬o+´ú±í[Ò»¸öÒÔÉÏµÄo]
-?    ±íÊ¾ÖØ¸´Áã¸ö»òÒ»¸öµÄÇ°Ò»¸öRE×Ö·û
-·¶Àý:egrep 'go?d' regular_express.txt
-±íÊ¾ËÑÑ°(gd)(god)×Ö·û´®£¬o?´ú±í[¿ÕµÄ»ò1¸öo]
-×¢:egrepÏÂ'go+d'ºÍ'go?d'µÄ½á¹û¼¯ºÏ¾ÍµÈÓÚgrepÏÂµÄ'go*d'
-|    ±íÊ¾ÓÃ»ò(or)µÄ·½Ê½ÕÒ³öÊý¸ö×Ö·û´®
-·¶Àý:egrep 'gd|good|dog' regular_express.txt
-±íÊ¾ËÑÑ°(gd)»ò(god)»ò(god)×Ö·û´®£¬|´ú±í»ò
-()    ±íÊ¾ÕÒ³öÈº×é×Ö·û´®
-·¶Àý:egrep 'g(la|oo)d' regular_express.txt
-±íÊ¾ËÑÑ°(glad)»ò(good)×Ö·û´®
-()    +±íÊ¾ÕÒ³ö¶à¸öÖØ¸´Èº×éµÄÅÐ±ð
-·¶Àý: echo 'AxyzxyzxyzxyzxyzC'|egrep 'A(xyz)+C'
-±íÊ¾ËÑÑ°¿ªÍ·ÊÇA½áÎ²ÊÇC£¬ÖÐ¼äÓÐÒ»¸öÒÔÉÏµÄ'xyz'×Ö·û´®
+æ€»ç»“ï¼š
+^word     è¡¨ç¤ºå¸¦æœå¯»çš„å­—ç¬¦ä¸²(word)åœ¨è¡Œé¦–
+word$     è¡¨ç¤ºå¸¦æœå¯»çš„å­—ç¬¦ä¸²(word)åœ¨è¡Œå°¾
+.         è¡¨ç¤º1ä¸ªä»»æ„å­—ç¬¦
+\         è¡¨ç¤ºè½¬ä¹‰å­—ç¬¦ï¼Œåœ¨ç‰¹æ®Šå­—ç¬¦å‰åŠ \ä¼šå°†åŽŸæœ¬çš„ç‰¹æ®Šå­—ç¬¦æ„ä¹‰åŽ»é™¤
+*         è¡¨ç¤ºé‡å¤0åˆ°æ— ç©·å¤šä¸ªå‰ä¸€ä¸ªRE(æ­£åˆ™è¡¨è¾¾å¼)å­—ç¬¦
+[list]    è¡¨ç¤ºæœç´¢å«æœ‰listçš„å­—ç¬¦ä¸²
+[n1-n2]   è¡¨ç¤ºæœç´¢æŒ‡å®šçš„å­—ç¬¦ä¸²èŒƒå›´,ä¾‹å¦‚[0-9] [a-z] [A-Z]ç­‰
+[^list]   è¡¨ç¤ºåå‘å­—ç¬¦ä¸²çš„èŒƒå›´,ä¾‹å¦‚[0-9]è¡¨ç¤ºéžæ•°å­—å­—ç¬¦ï¼Œ[A-Z]è¡¨ç¤ºéžå¤§å†™å­—ç¬¦èŒƒå›´
+\{n,m\}   è¡¨ç¤ºæ‰¾å‡ºnåˆ°mä¸ªå‰ä¸€ä¸ªREå­—ç¬¦
+\{n,\}    è¡¨ç¤ºnä¸ªä»¥ä¸Šçš„å‰ä¸€ä¸ªREå­—ç¬¦
+egrepæ€»ç»“:
++    è¡¨ç¤ºé‡å¤ä¸€ä¸ªæˆ–ä¸€ä¸ªä»¥ä¸Šçš„å‰ä¸€ä¸ªREå­—ç¬¦
+èŒƒä¾‹:egrep 'go+d' regular_express.txt
+è¡¨ç¤ºæœå¯»(god)(good)(goood)...ç­‰ç­‰å­—ç¬¦ä¸²ï¼Œo+ä»£è¡¨[ä¸€ä¸ªä»¥ä¸Šçš„o]
+?    è¡¨ç¤ºé‡å¤é›¶ä¸ªæˆ–ä¸€ä¸ªçš„å‰ä¸€ä¸ªREå­—ç¬¦
+èŒƒä¾‹:egrep 'go?d' regular_express.txt
+è¡¨ç¤ºæœå¯»(gd)(god)å­—ç¬¦ä¸²ï¼Œo?ä»£è¡¨[ç©ºçš„æˆ–1ä¸ªo]
+æ³¨:egrepä¸‹'go+d'å’Œ'go?d'çš„ç»“æžœé›†åˆå°±ç­‰äºŽgrepä¸‹çš„'go*d'
+|    è¡¨ç¤ºç”¨æˆ–(or)çš„æ–¹å¼æ‰¾å‡ºæ•°ä¸ªå­—ç¬¦ä¸²
+èŒƒä¾‹:egrep 'gd|good|dog' regular_express.txt
+è¡¨ç¤ºæœå¯»(gd)æˆ–(god)æˆ–(god)å­—ç¬¦ä¸²ï¼Œ|ä»£è¡¨æˆ–
+()    è¡¨ç¤ºæ‰¾å‡ºç¾¤ç»„å­—ç¬¦ä¸²
+èŒƒä¾‹:egrep 'g(la|oo)d' regular_express.txt
+è¡¨ç¤ºæœå¯»(glad)æˆ–(good)å­—ç¬¦ä¸²
+()    +è¡¨ç¤ºæ‰¾å‡ºå¤šä¸ªé‡å¤ç¾¤ç»„çš„åˆ¤åˆ«
+èŒƒä¾‹: echo 'AxyzxyzxyzxyzxyzC'|egrep 'A(xyz)+C'
+è¡¨ç¤ºæœå¯»å¼€å¤´æ˜¯Aç»“å°¾æ˜¯Cï¼Œä¸­é—´æœ‰ä¸€ä¸ªä»¥ä¸Šçš„'xyz'å­—ç¬¦ä¸²
 
 
 find pathname -options [-print -exec -ok ...]
-2£®ÃüÁî¹¦ÄÜ£º
-ÓÃÓÚÔÚÎÄ¼þÊ÷ÖÖ²éÕÒÎÄ¼þ£¬²¢×÷³öÏàÓ¦µÄ´¦Àí
-3£®ÃüÁî²ÎÊý£º
-pathname: findÃüÁîËù²éÕÒµÄÄ¿Â¼Â·¾¶¡£ÀýÈçÓÃ.À´±íÊ¾µ±Ç°Ä¿Â¼£¬ÓÃ/À´±íÊ¾ÏµÍ³¸ùÄ¿Â¼¡£ 
--print£º findÃüÁî½«Æ¥ÅäµÄÎÄ¼þÊä³öµ½±ê×¼Êä³ö¡£ 
--exec£º findÃüÁî¶ÔÆ¥ÅäµÄÎÄ¼þÖ´ÐÐ¸Ã²ÎÊýËù¸ø³öµÄshellÃüÁî¡£ÏàÓ¦ÃüÁîµÄÐÎÊ½Îª'command' {  } \;£¬×¢Òâ{   }ºÍ\£»Ö®¼äµÄ¿Õ¸ñ¡£ 
--ok£º ºÍ-execµÄ×÷ÓÃÏàÍ¬£¬Ö»²»¹ýÒÔÒ»ÖÖ¸üÎª°²È«µÄÄ£Ê½À´Ö´ÐÐ¸Ã²ÎÊýËù¸ø³öµÄshellÃüÁî£¬ÔÚÖ´ÐÐÃ¿Ò»¸öÃüÁîÖ®Ç°£¬¶¼»á¸ø³öÌáÊ¾£¬ÈÃÓÃ»§À´È·¶¨ÊÇ·ñÖ´ÐÐ¡£
-4£®ÃüÁîÑ¡Ïî£º
--name   °´ÕÕÎÄ¼þÃû²éÕÒÎÄ¼þ¡£
--perm   °´ÕÕÎÄ¼þÈ¨ÏÞÀ´²éÕÒÎÄ¼þ¡£
--prune  Ê¹ÓÃÕâÒ»Ñ¡Ïî¿ÉÒÔÊ¹findÃüÁî²»ÔÚµ±Ç°Ö¸¶¨µÄÄ¿Â¼ÖÐ²éÕÒ£¬Èç¹ûÍ¬Ê±Ê¹ÓÃ-depthÑ¡Ïî£¬ÄÇÃ´-prune½«±»findÃüÁîºöÂÔ¡£
--user   °´ÕÕÎÄ¼þÊôÖ÷À´²éÕÒÎÄ¼þ¡£
--group  °´ÕÕÎÄ¼þËùÊôµÄ×éÀ´²éÕÒÎÄ¼þ¡£
--mtime -n +n  °´ÕÕÎÄ¼þµÄ¸ü¸ÄÊ±¼äÀ´²éÕÒÎÄ¼þ£¬ - n±íÊ¾ÎÄ¼þ¸ü¸ÄÊ±¼ä¾àÏÖÔÚnÌìÒÔÄÚ£¬+ n±íÊ¾ÎÄ¼þ¸ü¸ÄÊ±¼ä¾àÏÖÔÚnÌìÒÔÇ°¡£findÃüÁî»¹ÓÐ-atimeºÍ-ctime Ñ¡Ïî£¬µ«ËüÃÇ¶¼ºÍ-m timeÑ¡Ïî¡£
--nogroup  ²éÕÒÎÞÓÐÐ§ËùÊô×éµÄÎÄ¼þ£¬¼´¸ÃÎÄ¼þËùÊôµÄ×éÔÚ/etc/groupsÖÐ²»´æÔÚ¡£
--nouser   ²éÕÒÎÞÓÐÐ§ÊôÖ÷µÄÎÄ¼þ£¬¼´¸ÃÎÄ¼þµÄÊôÖ÷ÔÚ/etc/passwdÖÐ²»´æÔÚ¡£
--newer file1 ! file2  ²éÕÒ¸ü¸ÄÊ±¼ä±ÈÎÄ¼þfile1ÐÂµ«±ÈÎÄ¼þfile2¾ÉµÄÎÄ¼þ¡£
--type  ²éÕÒÄ³Ò»ÀàÐÍµÄÎÄ¼þ£¬ÖîÈç£º
-b - ¿éÉè±¸ÎÄ¼þ¡£
-d - Ä¿Â¼¡£
-c - ×Ö·ûÉè±¸ÎÄ¼þ¡£
-p - ¹ÜµÀÎÄ¼þ¡£
-l - ·ûºÅÁ´½ÓÎÄ¼þ¡£
-f - ÆÕÍ¨ÎÄ¼þ¡£
--size n£º[c] ²éÕÒÎÄ¼þ³¤¶ÈÎªn¿éµÄÎÄ¼þ£¬´øÓÐcÊ±±íÊ¾ÎÄ¼þ³¤¶ÈÒÔ×Ö½Ú¼Æ¡£-depth£ºÔÚ²éÕÒÎÄ¼þÊ±£¬Ê×ÏÈ²éÕÒµ±Ç°Ä¿Â¼ÖÐµÄÎÄ¼þ£¬È»ºóÔÙÔÚÆä×ÓÄ¿Â¼ÖÐ²éÕÒ¡£
--fstype£º²éÕÒÎ»ÓÚÄ³Ò»ÀàÐÍÎÄ¼þÏµÍ³ÖÐµÄÎÄ¼þ£¬ÕâÐ©ÎÄ¼þÏµÍ³ÀàÐÍÍ¨³£¿ÉÒÔÔÚÅäÖÃÎÄ¼þ/etc/fstabÖÐÕÒµ½£¬¸ÃÅäÖÃÎÄ¼þÖÐ°üº¬ÁË±¾ÏµÍ³ÖÐÓÐ¹ØÎÄ¼þÏµÍ³µÄÐÅÏ¢¡£
--mount£ºÔÚ²éÕÒÎÄ¼þÊ±²»¿çÔ½ÎÄ¼þÏµÍ³mountµã¡£
--follow£ºÈç¹ûfindÃüÁîÓöµ½·ûºÅÁ´½ÓÎÄ¼þ£¬¾Í¸ú×ÙÖÁÁ´½ÓËùÖ¸ÏòµÄÎÄ¼þ¡£
--cpio£º¶ÔÆ¥ÅäµÄÎÄ¼þÊ¹ÓÃcpioÃüÁî£¬½«ÕâÐ©ÎÄ¼þ±¸·Ýµ½´Å´øÉè±¸ÖÐ¡£
-ÁíÍâ,ÏÂÃæÈý¸öµÄÇø±ð:
--amin n   ²éÕÒÏµÍ³ÖÐ×îºóN·ÖÖÓ·ÃÎÊµÄÎÄ¼þ
--atime n  ²éÕÒÏµÍ³ÖÐ×îºón*24Ð¡Ê±·ÃÎÊµÄÎÄ¼þ
--cmin n   ²éÕÒÏµÍ³ÖÐ×îºóN·ÖÖÓ±»¸Ä±äÎÄ¼þ×´Ì¬µÄÎÄ¼þ
--ctime n  ²éÕÒÏµÍ³ÖÐ×îºón*24Ð¡Ê±±»¸Ä±äÎÄ¼þ×´Ì¬µÄÎÄ¼þ
--mmin n   ²éÕÒÏµÍ³ÖÐ×îºóN·ÖÖÓ±»¸Ä±äÎÄ¼þÊý¾ÝµÄÎÄ¼þ
--mtime n  ²éÕÒÏµÍ³ÖÐ×îºón*24Ð¡Ê±±»¸Ä±äÎÄ¼þÊý¾ÝµÄÎÄ¼þ
-5£®Ê¹ÓÃÊµÀý£º
-ÊµÀý1£º²éÕÒÖ¸¶¨Ê±¼äÄÚÐÞ¸Ä¹ýµÄÎÄ¼þ
-ÃüÁî£º
+2ï¼Žå‘½ä»¤åŠŸèƒ½ï¼š
+ç”¨äºŽåœ¨æ–‡ä»¶æ ‘ç§æŸ¥æ‰¾æ–‡ä»¶ï¼Œå¹¶ä½œå‡ºç›¸åº”çš„å¤„ç†
+3ï¼Žå‘½ä»¤å‚æ•°ï¼š
+pathname: findå‘½ä»¤æ‰€æŸ¥æ‰¾çš„ç›®å½•è·¯å¾„ã€‚ä¾‹å¦‚ç”¨.æ¥è¡¨ç¤ºå½“å‰ç›®å½•ï¼Œç”¨/æ¥è¡¨ç¤ºç³»ç»Ÿæ ¹ç›®å½•ã€‚ 
+-printï¼š findå‘½ä»¤å°†åŒ¹é…çš„æ–‡ä»¶è¾“å‡ºåˆ°æ ‡å‡†è¾“å‡ºã€‚ 
+-execï¼š findå‘½ä»¤å¯¹åŒ¹é…çš„æ–‡ä»¶æ‰§è¡Œè¯¥å‚æ•°æ‰€ç»™å‡ºçš„shellå‘½ä»¤ã€‚ç›¸åº”å‘½ä»¤çš„å½¢å¼ä¸º'command' {  } \;ï¼Œæ³¨æ„{   }å’Œ\ï¼›ä¹‹é—´çš„ç©ºæ ¼ã€‚ 
+-okï¼š å’Œ-execçš„ä½œç”¨ç›¸åŒï¼Œåªä¸è¿‡ä»¥ä¸€ç§æ›´ä¸ºå®‰å…¨çš„æ¨¡å¼æ¥æ‰§è¡Œè¯¥å‚æ•°æ‰€ç»™å‡ºçš„shellå‘½ä»¤ï¼Œåœ¨æ‰§è¡Œæ¯ä¸€ä¸ªå‘½ä»¤ä¹‹å‰ï¼Œéƒ½ä¼šç»™å‡ºæç¤ºï¼Œè®©ç”¨æˆ·æ¥ç¡®å®šæ˜¯å¦æ‰§è¡Œã€‚
+4ï¼Žå‘½ä»¤é€‰é¡¹ï¼š
+-name   æŒ‰ç…§æ–‡ä»¶åæŸ¥æ‰¾æ–‡ä»¶ã€‚
+-perm   æŒ‰ç…§æ–‡ä»¶æƒé™æ¥æŸ¥æ‰¾æ–‡ä»¶ã€‚
+-prune  ä½¿ç”¨è¿™ä¸€é€‰é¡¹å¯ä»¥ä½¿findå‘½ä»¤ä¸åœ¨å½“å‰æŒ‡å®šçš„ç›®å½•ä¸­æŸ¥æ‰¾ï¼Œå¦‚æžœåŒæ—¶ä½¿ç”¨-depthé€‰é¡¹ï¼Œé‚£ä¹ˆ-pruneå°†è¢«findå‘½ä»¤å¿½ç•¥ã€‚
+-user   æŒ‰ç…§æ–‡ä»¶å±žä¸»æ¥æŸ¥æ‰¾æ–‡ä»¶ã€‚
+-group  æŒ‰ç…§æ–‡ä»¶æ‰€å±žçš„ç»„æ¥æŸ¥æ‰¾æ–‡ä»¶ã€‚
+-mtime -n +n  æŒ‰ç…§æ–‡ä»¶çš„æ›´æ”¹æ—¶é—´æ¥æŸ¥æ‰¾æ–‡ä»¶ï¼Œ - nè¡¨ç¤ºæ–‡ä»¶æ›´æ”¹æ—¶é—´è·çŽ°åœ¨nå¤©ä»¥å†…ï¼Œ+ nè¡¨ç¤ºæ–‡ä»¶æ›´æ”¹æ—¶é—´è·çŽ°åœ¨nå¤©ä»¥å‰ã€‚findå‘½ä»¤è¿˜æœ‰-atimeå’Œ-ctime é€‰é¡¹ï¼Œä½†å®ƒä»¬éƒ½å’Œ-m timeé€‰é¡¹ã€‚
+-nogroup  æŸ¥æ‰¾æ— æœ‰æ•ˆæ‰€å±žç»„çš„æ–‡ä»¶ï¼Œå³è¯¥æ–‡ä»¶æ‰€å±žçš„ç»„åœ¨/etc/groupsä¸­ä¸å­˜åœ¨ã€‚
+-nouser   æŸ¥æ‰¾æ— æœ‰æ•ˆå±žä¸»çš„æ–‡ä»¶ï¼Œå³è¯¥æ–‡ä»¶çš„å±žä¸»åœ¨/etc/passwdä¸­ä¸å­˜åœ¨ã€‚
+-newer file1 ! file2  æŸ¥æ‰¾æ›´æ”¹æ—¶é—´æ¯”æ–‡ä»¶file1æ–°ä½†æ¯”æ–‡ä»¶file2æ—§çš„æ–‡ä»¶ã€‚
+-type  æŸ¥æ‰¾æŸä¸€ç±»åž‹çš„æ–‡ä»¶ï¼Œè¯¸å¦‚ï¼š
+b - å—è®¾å¤‡æ–‡ä»¶ã€‚
+d - ç›®å½•ã€‚
+c - å­—ç¬¦è®¾å¤‡æ–‡ä»¶ã€‚
+p - ç®¡é“æ–‡ä»¶ã€‚
+l - ç¬¦å·é“¾æŽ¥æ–‡ä»¶ã€‚
+f - æ™®é€šæ–‡ä»¶ã€‚
+-size nï¼š[c] æŸ¥æ‰¾æ–‡ä»¶é•¿åº¦ä¸ºnå—çš„æ–‡ä»¶ï¼Œå¸¦æœ‰cæ—¶è¡¨ç¤ºæ–‡ä»¶é•¿åº¦ä»¥å­—èŠ‚è®¡ã€‚-depthï¼šåœ¨æŸ¥æ‰¾æ–‡ä»¶æ—¶ï¼Œé¦–å…ˆæŸ¥æ‰¾å½“å‰ç›®å½•ä¸­çš„æ–‡ä»¶ï¼Œç„¶åŽå†åœ¨å…¶å­ç›®å½•ä¸­æŸ¥æ‰¾ã€‚
+-fstypeï¼šæŸ¥æ‰¾ä½äºŽæŸä¸€ç±»åž‹æ–‡ä»¶ç³»ç»Ÿä¸­çš„æ–‡ä»¶ï¼Œè¿™äº›æ–‡ä»¶ç³»ç»Ÿç±»åž‹é€šå¸¸å¯ä»¥åœ¨é…ç½®æ–‡ä»¶/etc/fstabä¸­æ‰¾åˆ°ï¼Œè¯¥é…ç½®æ–‡ä»¶ä¸­åŒ…å«äº†æœ¬ç³»ç»Ÿä¸­æœ‰å…³æ–‡ä»¶ç³»ç»Ÿçš„ä¿¡æ¯ã€‚
+-mountï¼šåœ¨æŸ¥æ‰¾æ–‡ä»¶æ—¶ä¸è·¨è¶Šæ–‡ä»¶ç³»ç»Ÿmountç‚¹ã€‚
+-followï¼šå¦‚æžœfindå‘½ä»¤é‡åˆ°ç¬¦å·é“¾æŽ¥æ–‡ä»¶ï¼Œå°±è·Ÿè¸ªè‡³é“¾æŽ¥æ‰€æŒ‡å‘çš„æ–‡ä»¶ã€‚
+-cpioï¼šå¯¹åŒ¹é…çš„æ–‡ä»¶ä½¿ç”¨cpioå‘½ä»¤ï¼Œå°†è¿™äº›æ–‡ä»¶å¤‡ä»½åˆ°ç£å¸¦è®¾å¤‡ä¸­ã€‚
+å¦å¤–,ä¸‹é¢ä¸‰ä¸ªçš„åŒºåˆ«:
+-amin n   æŸ¥æ‰¾ç³»ç»Ÿä¸­æœ€åŽNåˆ†é’Ÿè®¿é—®çš„æ–‡ä»¶
+-atime n  æŸ¥æ‰¾ç³»ç»Ÿä¸­æœ€åŽn*24å°æ—¶è®¿é—®çš„æ–‡ä»¶
+-cmin n   æŸ¥æ‰¾ç³»ç»Ÿä¸­æœ€åŽNåˆ†é’Ÿè¢«æ”¹å˜æ–‡ä»¶çŠ¶æ€çš„æ–‡ä»¶
+-ctime n  æŸ¥æ‰¾ç³»ç»Ÿä¸­æœ€åŽn*24å°æ—¶è¢«æ”¹å˜æ–‡ä»¶çŠ¶æ€çš„æ–‡ä»¶
+-mmin n   æŸ¥æ‰¾ç³»ç»Ÿä¸­æœ€åŽNåˆ†é’Ÿè¢«æ”¹å˜æ–‡ä»¶æ•°æ®çš„æ–‡ä»¶
+-mtime n  æŸ¥æ‰¾ç³»ç»Ÿä¸­æœ€åŽn*24å°æ—¶è¢«æ”¹å˜æ–‡ä»¶æ•°æ®çš„æ–‡ä»¶
+5ï¼Žä½¿ç”¨å®žä¾‹ï¼š
+å®žä¾‹1ï¼šæŸ¥æ‰¾æŒ‡å®šæ—¶é—´å†…ä¿®æ”¹è¿‡çš„æ–‡ä»¶
+å‘½ä»¤ï¼š
            find -atime -2
-Êä³ö£º
+è¾“å‡ºï¼š
 
-¸´ÖÆ´úÂë´úÂëÈçÏÂ:
+å¤åˆ¶ä»£ç ä»£ç å¦‚ä¸‹:
 
 [root@peidachang ~]# find -atime -2
 .
@@ -178,14 +178,14 @@ f - ÆÕÍ¨ÎÄ¼þ¡£
 ./.bashrc
 ./.bash_profile
 ./.bash_history
-ËµÃ÷£º
-³¬ÕÒ48Ð¡Ê±ÄÚÐÞ¸Ä¹ýµÄÎÄ¼þ
-ÊµÀý2£º¸ù¾Ý¹Ø¼ü×Ö²éÕÒ
-ÃüÁî£º
+è¯´æ˜Žï¼š
+è¶…æ‰¾48å°æ—¶å†…ä¿®æ”¹è¿‡çš„æ–‡ä»¶
+å®žä¾‹2ï¼šæ ¹æ®å…³é”®å­—æŸ¥æ‰¾
+å‘½ä»¤ï¼š
 find . -name "*.log"
-Êä³ö£º
+è¾“å‡ºï¼š
 
-¸´ÖÆ´úÂë´úÂëÈçÏÂ:
+å¤åˆ¶ä»£ç ä»£ç å¦‚ä¸‹:
 
 [root@localhost test]# find . -name "*.log" 
 ./log_link.log
@@ -206,28 +206,28 @@ find . -name "*.log"
 ./test3/log3-2.log
 ./test3/log3-3.log
 ./test3/log3-1.log
-ËµÃ÷£º
-ÔÚµ±Ç°Ä¿Â¼²éÕÒ ÒÔ.log½áÎ²µÄÎÄ¼þ¡£ ". "´ú±íµ±Ç°Ä¿Â¼
-ÊµÀý3£º°´ÕÕÄ¿Â¼»òÎÄ¼þµÄÈ¨ÏÞÀ´²éÕÒÎÄ¼þ
-ÃüÁî£º
+è¯´æ˜Žï¼š
+åœ¨å½“å‰ç›®å½•æŸ¥æ‰¾ ä»¥.logç»“å°¾çš„æ–‡ä»¶ã€‚ ". "ä»£è¡¨å½“å‰ç›®å½•
+å®žä¾‹3ï¼šæŒ‰ç…§ç›®å½•æˆ–æ–‡ä»¶çš„æƒé™æ¥æŸ¥æ‰¾æ–‡ä»¶
+å‘½ä»¤ï¼š
 find /opt/soft/test/ -perm 777
-Êä³ö£º
+è¾“å‡ºï¼š
 
-¸´ÖÆ´úÂë´úÂëÈçÏÂ:
+å¤åˆ¶ä»£ç ä»£ç å¦‚ä¸‹:
 
 [root@localhost test]# find /opt/soft/test/ -perm 777
 /opt/soft/test/log_link.log
 /opt/soft/test/test4
 /opt/soft/test/test5/test3
 /opt/soft/test/test3
-ËµÃ÷£º
-²éÕÒ/opt/soft/test/Ä¿Â¼ÏÂ È¨ÏÞÎª 777µÄÎÄ¼þ
-ÊµÀý4£º°´ÀàÐÍ²éÕÒ
-ÃüÁî£º
+è¯´æ˜Žï¼š
+æŸ¥æ‰¾/opt/soft/test/ç›®å½•ä¸‹ æƒé™ä¸º 777çš„æ–‡ä»¶
+å®žä¾‹4ï¼šæŒ‰ç±»åž‹æŸ¥æ‰¾
+å‘½ä»¤ï¼š
 find . -type f -name "*.log"
-Êä³ö£º
+è¾“å‡ºï¼š
 
-¸´ÖÆ´úÂë´úÂëÈçÏÂ:
+å¤åˆ¶ä»£ç ä»£ç å¦‚ä¸‹:
 
 [root@localhost test]# find . -type f -name "*.log"
 ./log2014.log
@@ -248,14 +248,14 @@ find . -type f -name "*.log"
 ./test3/log3-3.log
 ./test3/log3-1.log
 [root@localhost test]#
-ËµÃ÷£º
-²éÕÒµ±Ä¿Â¼£¬ÒÔ.log½áÎ²µÄÆÕÍ¨ÎÄ¼þ
-ÊµÀý5£º²éÕÒµ±Ç°ËùÓÐÄ¿Â¼²¢ÅÅÐò
-ÃüÁî£º
+è¯´æ˜Žï¼š
+æŸ¥æ‰¾å½“ç›®å½•ï¼Œä»¥.logç»“å°¾çš„æ™®é€šæ–‡ä»¶
+å®žä¾‹5ï¼šæŸ¥æ‰¾å½“å‰æ‰€æœ‰ç›®å½•å¹¶æŽ’åº
+å‘½ä»¤ï¼š
 find . -type d | sort
-Êä³ö£º
+è¾“å‡ºï¼š
 
-¸´ÖÆ´úÂë´úÂëÈçÏÂ:
+å¤åˆ¶ä»£ç ä»£ç å¦‚ä¸‹:
 
 [root@localhost test]# find . -type d | sort
 .
@@ -272,12 +272,12 @@ find . -type d | sort
 ./test5
 ./test5/test3
 [root@localhost test]#
-ÊµÀý6£º°´´óÐ¡²éÕÒÎÄ¼þ
-ÃüÁî£º
+å®žä¾‹6ï¼šæŒ‰å¤§å°æŸ¥æ‰¾æ–‡ä»¶
+å‘½ä»¤ï¼š
 find . -size +1000c -print
-Êä³ö£º
+è¾“å‡ºï¼š
 
-¸´ÖÆ´úÂë´úÂëÈçÏÂ:
+å¤åˆ¶ä»£ç ä»£ç å¦‚ä¸‹:
 
 [root@localhost test]# find . -size +1000c -print
 .
@@ -295,217 +295,217 @@ find . -size +1000c -print
 ./test5/test3
 ./test3
 [root@localhost test]#
-ËµÃ÷£º
-²éÕÒµ±Ç°Ä¿Â¼´óÓÚ1KµÄÎÄ¼þ
-Ò»¡¢LinuxÖÐfind³£¼ûÓÃ·¨Ê¾Àý
-¡¤find    path    -option    [    -print ]    [ -exec    -ok    command ]    {} \;
-#-print ½«²éÕÒµ½µÄÎÄ¼þÊä³öµ½±ê×¼Êä³ö
-#-exec    command    {} \;       -----½«²éµ½µÄÎÄ¼þÖ´ÐÐcommand²Ù×÷,{} ºÍ \;Ö®¼äÓÐ¿Õ¸ñ
-#-ok ºÍ-execÏàÍ¬£¬Ö»²»¹ýÔÚ²Ù×÷Ç°ÒªÑ¯ÓÃ»§ ==================================================== -name    filename               #²éÕÒÃûÎªfilenameµÄÎÄ¼þ
--perm                         #°´Ö´ÐÐÈ¨ÏÞÀ´²éÕÒ
--user     username              #°´ÎÄ¼þÊôÖ÷À´²éÕÒ
--group groupname              #°´×éÀ´²éÕÒ
--mtime    -n +n                 #°´ÎÄ¼þ¸ü¸ÄÊ±¼äÀ´²éÕÒÎÄ¼þ£¬-nÖ¸nÌìÒÔÄÚ£¬+nÖ¸nÌìÒÔÇ°
--atime     -n +n                #°´ÎÄ¼þ·ÃÎÊÊ±¼äÀ´²éGIN: 0px">-perm                          #°´Ö´ÐÐÈ¨ÏÞÀ´²éÕÒ
--user     username              #°´ÎÄ¼þÊôÖ÷À´²éÕÒ
--group groupname              #°´×éÀ´²éÕÒ
--mtime    -n +n                 #°´ÎÄ¼þ¸ü¸ÄÊ±¼äÀ´²éÕÒÎÄ¼þ£¬-nÖ¸nÌìÒÔÄÚ£¬+nÖ¸nÌìÒÔÇ°
--atime     -n +n                #°´ÎÄ¼þ·ÃÎÊÊ±¼äÀ´²éÕÒÎÄ¼þ£¬-nÖ¸nÌìÒÔÄÚ£¬+nÖ¸nÌìÒÔÇ° 
--ctime     -n +n                #°´ÎÄ¼þ´´½¨Ê±¼äÀ´²éÕÒÎÄ¼þ£¬-nÖ¸nÌìÒÔÄÚ£¬+nÖ¸nÌìÒÔÇ° 
--nogroup                      #²éÎÞÓÐÐ§Êô×éµÄÎÄ¼þ£¬¼´ÎÄ¼þµÄÊô×éÔÚ/etc/groupsÖÐ²»´æÔÚ
--nouser                       #²éÎÞÓÐÐ§ÊôÖ÷µÄÎÄ¼þ£¬¼´ÎÄ¼þµÄÊôÖ÷ÔÚ/etc/passwdÖÐ²»´æ
--newer    f1 !f2                ÕÒÎÄ¼þ£¬-nÖ¸nÌìÒÔÄÚ£¬+nÖ¸nÌìÒÔÇ° 
--ctime     -n +n                #°´ÎÄ¼þ´´½¨Ê±¼äÀ´²éÕÒÎÄ¼þ£¬-nÖ¸nÌìÒÔÄÚ£¬+nÖ¸nÌìÒÔÇ° 
--nogroup                      #²éÎÞÓÐÐ§Êô×éµÄÎÄ¼þ£¬¼´ÎÄ¼þµÄÊô×éÔÚ/etc/groupsÖÐ²»´æÔÚ
--nouser                       #²éÎÞÓÐÐ§ÊôÖ÷µÄÎÄ¼þ£¬¼´ÎÄ¼þµÄÊôÖ÷ÔÚ/etc/passwdÖÐ²»´æ
--newer    f1 !f2                #²é¸ü¸ÄÊ±¼ä±Èf1ÐÂµ«±Èf2¾ÉµÄÎÄ¼þ
--type      b/d/c/p/l/f          #²éÊÇ¿éÉè±¸¡¢Ä¿Â¼¡¢×Ö·ûÉè±¸¡¢¹ÜµÀ¡¢·ûºÅÁ´½Ó¡¢ÆÕÍ¨ÎÄ¼þ
--size       n[c]                #²é³¤¶ÈÎªn¿é[»òn×Ö½Ú]µÄÎÄ¼þ
--depth                        #Ê¹²éÕÒÔÚ½øÈë×ÓÄ¿Â¼Ç°ÏÈÐÐ²éÕÒÍê±¾Ä¿Â¼
--fstype                       #²é¸ü¸ÄÊ±¼ä±Èf1ÐÂµ«±Èf2¾ÉµÄÎÄ¼þ
--mount                        #²éÎÄ¼þÊ±²»¿çÔ½ÎÄ¼þÏµÍ³mountµã
--follow                       #Èç¹ûÓöµ½·ûºÅÁ´½ÓÎÄ¼þ£¬¾Í¸ú×ÙÁ´½ÓËùÖ¸µÄÎÄ¼þ
--cpio                         #¶ÔÆ¥ÅäµÄÎÄ¼þÊ¹ÓÃcpioÃüÁî£¬½«ËûÃÇ±¸·Ýµ½´Å´øÉè±¸ÖÐ
--prune                        #ºöÂÔÄ³¸öÄ¿Â¼ ====================================================
-$find    ~    -name    "*.txt"    -print      #ÔÚ$HOMEÖÐ²é.txtÎÄ¼þ²¢ÏÔÊ¾
+è¯´æ˜Žï¼š
+æŸ¥æ‰¾å½“å‰ç›®å½•å¤§äºŽ1Kçš„æ–‡ä»¶
+ä¸€ã€Linuxä¸­findå¸¸è§ç”¨æ³•ç¤ºä¾‹
+Â·find    path    -option    [    -print ]    [ -exec    -ok    command ]    {} \;
+#-print å°†æŸ¥æ‰¾åˆ°çš„æ–‡ä»¶è¾“å‡ºåˆ°æ ‡å‡†è¾“å‡º
+#-exec    command    {} \;       -----å°†æŸ¥åˆ°çš„æ–‡ä»¶æ‰§è¡Œcommandæ“ä½œ,{} å’Œ \;ä¹‹é—´æœ‰ç©ºæ ¼
+#-ok å’Œ-execç›¸åŒï¼Œåªä¸è¿‡åœ¨æ“ä½œå‰è¦è¯¢ç”¨æˆ· ==================================================== -name    filename               #æŸ¥æ‰¾åä¸ºfilenameçš„æ–‡ä»¶
+-perm                         #æŒ‰æ‰§è¡Œæƒé™æ¥æŸ¥æ‰¾
+-user     username              #æŒ‰æ–‡ä»¶å±žä¸»æ¥æŸ¥æ‰¾
+-group groupname              #æŒ‰ç»„æ¥æŸ¥æ‰¾
+-mtime    -n +n                 #æŒ‰æ–‡ä»¶æ›´æ”¹æ—¶é—´æ¥æŸ¥æ‰¾æ–‡ä»¶ï¼Œ-næŒ‡nå¤©ä»¥å†…ï¼Œ+næŒ‡nå¤©ä»¥å‰
+-atime     -n +n                #æŒ‰æ–‡ä»¶è®¿é—®æ—¶é—´æ¥æŸ¥GIN: 0px">-perm                          #æŒ‰æ‰§è¡Œæƒé™æ¥æŸ¥æ‰¾
+-user     username              #æŒ‰æ–‡ä»¶å±žä¸»æ¥æŸ¥æ‰¾
+-group groupname              #æŒ‰ç»„æ¥æŸ¥æ‰¾
+-mtime    -n +n                 #æŒ‰æ–‡ä»¶æ›´æ”¹æ—¶é—´æ¥æŸ¥æ‰¾æ–‡ä»¶ï¼Œ-næŒ‡nå¤©ä»¥å†…ï¼Œ+næŒ‡nå¤©ä»¥å‰
+-atime     -n +n                #æŒ‰æ–‡ä»¶è®¿é—®æ—¶é—´æ¥æŸ¥æ‰¾æ–‡ä»¶ï¼Œ-næŒ‡nå¤©ä»¥å†…ï¼Œ+næŒ‡nå¤©ä»¥å‰ 
+-ctime     -n +n                #æŒ‰æ–‡ä»¶åˆ›å»ºæ—¶é—´æ¥æŸ¥æ‰¾æ–‡ä»¶ï¼Œ-næŒ‡nå¤©ä»¥å†…ï¼Œ+næŒ‡nå¤©ä»¥å‰ 
+-nogroup                      #æŸ¥æ— æœ‰æ•ˆå±žç»„çš„æ–‡ä»¶ï¼Œå³æ–‡ä»¶çš„å±žç»„åœ¨/etc/groupsä¸­ä¸å­˜åœ¨
+-nouser                       #æŸ¥æ— æœ‰æ•ˆå±žä¸»çš„æ–‡ä»¶ï¼Œå³æ–‡ä»¶çš„å±žä¸»åœ¨/etc/passwdä¸­ä¸å­˜
+-newer    f1 !f2                æ‰¾æ–‡ä»¶ï¼Œ-næŒ‡nå¤©ä»¥å†…ï¼Œ+næŒ‡nå¤©ä»¥å‰ 
+-ctime     -n +n                #æŒ‰æ–‡ä»¶åˆ›å»ºæ—¶é—´æ¥æŸ¥æ‰¾æ–‡ä»¶ï¼Œ-næŒ‡nå¤©ä»¥å†…ï¼Œ+næŒ‡nå¤©ä»¥å‰ 
+-nogroup                      #æŸ¥æ— æœ‰æ•ˆå±žç»„çš„æ–‡ä»¶ï¼Œå³æ–‡ä»¶çš„å±žç»„åœ¨/etc/groupsä¸­ä¸å­˜åœ¨
+-nouser                       #æŸ¥æ— æœ‰æ•ˆå±žä¸»çš„æ–‡ä»¶ï¼Œå³æ–‡ä»¶çš„å±žä¸»åœ¨/etc/passwdä¸­ä¸å­˜
+-newer    f1 !f2                #æŸ¥æ›´æ”¹æ—¶é—´æ¯”f1æ–°ä½†æ¯”f2æ—§çš„æ–‡ä»¶
+-type      b/d/c/p/l/f          #æŸ¥æ˜¯å—è®¾å¤‡ã€ç›®å½•ã€å­—ç¬¦è®¾å¤‡ã€ç®¡é“ã€ç¬¦å·é“¾æŽ¥ã€æ™®é€šæ–‡ä»¶
+-size       n[c]                #æŸ¥é•¿åº¦ä¸ºnå—[æˆ–nå­—èŠ‚]çš„æ–‡ä»¶
+-depth                        #ä½¿æŸ¥æ‰¾åœ¨è¿›å…¥å­ç›®å½•å‰å…ˆè¡ŒæŸ¥æ‰¾å®Œæœ¬ç›®å½•
+-fstype                       #æŸ¥æ›´æ”¹æ—¶é—´æ¯”f1æ–°ä½†æ¯”f2æ—§çš„æ–‡ä»¶
+-mount                        #æŸ¥æ–‡ä»¶æ—¶ä¸è·¨è¶Šæ–‡ä»¶ç³»ç»Ÿmountç‚¹
+-follow                       #å¦‚æžœé‡åˆ°ç¬¦å·é“¾æŽ¥æ–‡ä»¶ï¼Œå°±è·Ÿè¸ªé“¾æŽ¥æ‰€æŒ‡çš„æ–‡ä»¶
+-cpio                         #å¯¹åŒ¹é…çš„æ–‡ä»¶ä½¿ç”¨cpioå‘½ä»¤ï¼Œå°†ä»–ä»¬å¤‡ä»½åˆ°ç£å¸¦è®¾å¤‡ä¸­
+-prune                        #å¿½ç•¥æŸä¸ªç›®å½• ====================================================
+$find    ~    -name    "*.txt"    -print      #åœ¨$HOMEä¸­æŸ¥.txtæ–‡ä»¶å¹¶æ˜¾ç¤º
 $find    .     -name    "*.txt"    -print
-$find    .     -name    "[A-Z]*"    -pri26nbsp;     #¶ÔÆ¥ÅäµÄÎÄ¼þÊ¹ÓÃcpioÃüÁî£¬½«ËûÃÇ±¸·Ýµ½´Å´øÉè±¸ÖÐ
--prune                                #ºöÂÔÄ³¸öÄ¿Â¼ $find    .     -name    "[A-Z]*"    -print    #²éÒÔ´óÐ´×ÖÄ¸¿ªÍ·µÄÎÄ¼þ
-$find    /etc    -name    "host*"    -print #²éÒÔhost¿ªÍ·µÄÎÄ¼þ
-$find    .    -name    "[a-z][a-z][0--9][0--9].txt"     -print    #²éÒÔÁ½¸öÐ¡Ð´×ÖÄ¸ºÍÁ½¸öÊý×Ö¿ªÍ·µÄtxtÎÄ¼þ
+$find    .     -name    "[A-Z]*"    -pri26nbsp;     #å¯¹åŒ¹é…çš„æ–‡ä»¶ä½¿ç”¨cpioå‘½ä»¤ï¼Œå°†ä»–ä»¬å¤‡ä»½åˆ°ç£å¸¦è®¾å¤‡ä¸­
+-prune                                #å¿½ç•¥æŸä¸ªç›®å½• $find    .     -name    "[A-Z]*"    -print    #æŸ¥ä»¥å¤§å†™å­—æ¯å¼€å¤´çš„æ–‡ä»¶
+$find    /etc    -name    "host*"    -print #æŸ¥ä»¥hostå¼€å¤´çš„æ–‡ä»¶
+$find    .    -name    "[a-z][a-z][0--9][0--9].txt"     -print    #æŸ¥ä»¥ä¸¤ä¸ªå°å†™å­—æ¯å’Œä¸¤ä¸ªæ•°å­—å¼€å¤´çš„txtæ–‡ä»¶
 $find .    -perm    755    -print
-$find    .    -perm -007    -exec ls -l {} \;    #²éËùÓÐÓÃ»§¶¼¿É¶ÁÐ´Ö´ÐÐµÄÎÄ¼þÍ¬-perm 777
-$find    . -type d    -print   ´òÓ¡Ä¿Â¼½á¹¹
-$find    .   !    -type    d    -print  ´òÓ¡·ÇÄ¿Â¼ÎÄ¼þ find /usr/include -name '*.h' -exec grep AF_INEF6 {} \; ÒògrepÎÞ·¨µÝ¹éËÑË÷×ÓÄ¿Â¼£¬¹Ê¿ÉÒÔºÍfindÏà½áºÏÊ¹ÓÃ¡£ ÔÚ/usr/include ËùÓÐ×ÓÄ¿Â¼ÖÐµÄ.hÎÄ¼þÖÐÕÒ×Ö´®AF_INEF6
-$find    .    -type l    -print $find    .    -size    +1000000c    -print         #²é³¤¶È´óÓÚ1MbµÄÎÄ¼þ
-$find    .    -size    100c          -print        # ²é³¤¶ÈÎª100cµÄÎÄ¼þ
-$find    .    -size    +10    -print               #²é³¤¶È³¬¹ýÆÚ×÷·Ï10¿éµÄÎÄ¼þ£¨1¿é=512×Ö½Ú£© $cd /
+$find    .    -perm -007    -exec ls -l {} \;    #æŸ¥æ‰€æœ‰ç”¨æˆ·éƒ½å¯è¯»å†™æ‰§è¡Œçš„æ–‡ä»¶åŒ-perm 777
+$find    . -type d    -print   æ‰“å°ç›®å½•ç»“æž„
+$find    .   !    -type    d    -print  æ‰“å°éžç›®å½•æ–‡ä»¶ find /usr/include -name '*.h' -exec grep AF_INEF6 {} \; å› grepæ— æ³•é€’å½’æœç´¢å­ç›®å½•ï¼Œæ•…å¯ä»¥å’Œfindç›¸ç»“åˆä½¿ç”¨ã€‚ åœ¨/usr/include æ‰€æœ‰å­ç›®å½•ä¸­çš„.hæ–‡ä»¶ä¸­æ‰¾å­—ä¸²AF_INEF6
+$find    .    -type l    -print $find    .    -size    +1000000c    -print         #æŸ¥é•¿åº¦å¤§äºŽ1Mbçš„æ–‡ä»¶
+$find    .    -size    100c          -print        # æŸ¥é•¿åº¦ä¸º100cçš„æ–‡ä»¶
+$find    .    -size    +10    -print               #æŸ¥é•¿åº¦è¶…è¿‡æœŸä½œåºŸ10å—çš„æ–‡ä»¶ï¼ˆ1å—=512å­—èŠ‚ï¼‰ $cd /
 $find    etc    home    apps     -depth    -print    | cpio    -ivcdC65536    -o    /dev/rmt0
-$find    /etc -name "passwd*"    -exec grep    "cnscn"    {}    \;    #¿´ÊÇ·ñ´æÔÚcnscnÓÃ»§
+$find    /etc -name "passwd*"    -exec grep    "cnscn"    {}    \;    #çœ‹æ˜¯å¦å­˜åœ¨cnscnç”¨æˆ·
 $find . -name "yao*"    | xargs file
 $find    . -name "yao*"    |    xargs    echo     "" > /tmp/core.log
-$find    . -name "yao*"    | xargs    chmod    o-w ====================================================== find    -name april*                        ÔÚµ±Ç°Ä¿Â¼ÏÂ²éÕÒÒÔapril¿ªÊ¼µÄÎÄ¼þ
-find    -name    april*    fprint file          ÔÚµ±Ç°Ä¿Â¼ÏÂ²éÕÒÒÔapril¿ªÊ¼µÄÎÄ¼þ£¬²¢°Ñ½á¹ûÊä³öµ½fileÖÐ
-find    -name ap* -o -name may*    ²éÕÒÒÔap»òmay¿ªÍ·µÄÎÄ¼þ
-find    /mnt    -name tom.txt    -ftype vfat    ÔÚ/mntÏÂ²éÕÒÃû³ÆÎªtom.txtÇÒÎÄ¼þÏµÍ³ÀàÐÍÎªvfatµÄÎÄ¼þ
-find    /mnt    -name t.txt ! -ftype vfat     ÔÚ/mntÏÂ²éÕÒÃû³ÆÎªtom.txtÇÒÎÄ¼þÏµÍ³ÀàÐÍ²»ÎªvfatµÄÎÄ¼þ
-find    /tmp    -name wa* -type l             ÔÚ/tmpÏÂ²éÕÒÃûÎªwa¿ªÍ·ÇÒÀàÐÍÎª·ûºÅÁ´½ÓµÄÎÄ¼þ
-find    /home    -mtime    -2                   ÔÚ/homeÏÂ²é×î½üÁ½ÌìÄÚ¸Ä¶¯¹ýµÄÎÄ¼þ
-find /home     -atime -1                    ²é1ÌìÖ®ÄÚ±»´æÈ¡¹ýµÄÎÄ¼þ
-find /home -mmin     +60                    ÔÚ/homeÏÂ²é60·ÖÖÓÇ°¸Ä¶¯¹ýµÄÎÄ¼þ
-find /home    -amin    +30                    ²é×î½ü30·ÖÖÓÇ°±»´æÈ¡¹ýµÄÎÄ¼þ
-find /home    -newer    tmp.txt               ÔÚ/homeÏÂ²é¸üÐÂÊ±¼ä±Ètmp.txt½üµÄÎÄ¼þ»òÄ¿Â¼
-find /home    -anewer    tmp.txt              ÔÚ/homeÏÂ²é´æÈ¡Ê±¼ä±Ètmp.txt½üµÄÎÄ¼þ»òÄ¿Â¼
-find    /home    -used    -2                    ÁÐ³öÎÄ¼þ»òÄ¿Â¼±»¸Ä¶¯¹ýÖ®ºó£¬ÔÚ2ÈÕÄÚ±»´æÈ¡¹ýµÄÎÄ¼þ»òÄ¿Â¼
-find    /home    -user cnscn                  ÁÐ³ö/homeÄ¿Â¼ÄÚÊôÓÚÓÃ»§cnscnµÄÎÄ¼þ»òÄ¿Â¼
-find    /home    -uid    +501                   ÁÐ³ö/homeÄ¿Â¼ÄÚÓÃ»§µÄÊ¶±ðÂë´óÓÚ501µÄÎÄ¼þ»òÄ¿Â¼
-find    /home    -group    cnscn                ÁÐ³ö/homeÄÚ×éÎªcnscnµÄÎÄ¼þ»òÄ¿Â¼
-find    /home    -gid 501                     ÁÐ³ö/homeÄÚ×éidÎª501µÄÎÄ¼þ»òÄ¿Â¼
-find    /home    -nouser                      ÁÐ³ö/homeÄÚ²»ÊôÓÚ±¾µØÓÃ»§µÄÎÄ¼þ»òÄ¿Â¼
-find    /home    -nogroup                     ÁÐ³ö/homeÄÚ²»ÊôÓÚ±¾µØ×éµÄÎÄ¼þ»òÄ¿Â¼
-find    /home     -name tmp.txt     -maxdepth    4    ÁÐ³ö/homeÄÚµÄtmp.txt ²éÊ±Éî¶È×î¶àÎª3²ã
-find    /home    -name tmp.txt    -mindepth    3    ´ÓµÚ2²ã¿ªÊ¼²é
-find    /home    -empty                       ²éÕÒ´óÐ¡Îª0µÄÎÄ¼þ»ò¿ÕÄ¿Â¼
-find    /home    -size    +512k                 ²é´óÓÚ512kµÄÎÄ¼þ
-find    /home    -size    -512k                 ²éÐ¡ÓÚ512kµÄÎÄ¼þ
-find    /home    -links    +2                   ²éÓ²Á¬½ÓÊý´óÓÚ2µÄÎÄ¼þ»òÄ¿Â¼
-find    /home    -perm    0700                  ²éÈ¨ÏÞÎª700µÄÎÄ¼þ»òÄ¿Â¼
+$find    . -name "yao*"    | xargs    chmod    o-w ====================================================== find    -name april*                        åœ¨å½“å‰ç›®å½•ä¸‹æŸ¥æ‰¾ä»¥aprilå¼€å§‹çš„æ–‡ä»¶
+find    -name    april*    fprint file          åœ¨å½“å‰ç›®å½•ä¸‹æŸ¥æ‰¾ä»¥aprilå¼€å§‹çš„æ–‡ä»¶ï¼Œå¹¶æŠŠç»“æžœè¾“å‡ºåˆ°fileä¸­
+find    -name ap* -o -name may*    æŸ¥æ‰¾ä»¥apæˆ–mayå¼€å¤´çš„æ–‡ä»¶
+find    /mnt    -name tom.txt    -ftype vfat    åœ¨/mntä¸‹æŸ¥æ‰¾åç§°ä¸ºtom.txtä¸”æ–‡ä»¶ç³»ç»Ÿç±»åž‹ä¸ºvfatçš„æ–‡ä»¶
+find    /mnt    -name t.txt ! -ftype vfat     åœ¨/mntä¸‹æŸ¥æ‰¾åç§°ä¸ºtom.txtä¸”æ–‡ä»¶ç³»ç»Ÿç±»åž‹ä¸ä¸ºvfatçš„æ–‡ä»¶
+find    /tmp    -name wa* -type l             åœ¨/tmpä¸‹æŸ¥æ‰¾åä¸ºwaå¼€å¤´ä¸”ç±»åž‹ä¸ºç¬¦å·é“¾æŽ¥çš„æ–‡ä»¶
+find    /home    -mtime    -2                   åœ¨/homeä¸‹æŸ¥æœ€è¿‘ä¸¤å¤©å†…æ”¹åŠ¨è¿‡çš„æ–‡ä»¶
+find /home     -atime -1                    æŸ¥1å¤©ä¹‹å†…è¢«å­˜å–è¿‡çš„æ–‡ä»¶
+find /home -mmin     +60                    åœ¨/homeä¸‹æŸ¥60åˆ†é’Ÿå‰æ”¹åŠ¨è¿‡çš„æ–‡ä»¶
+find /home    -amin    +30                    æŸ¥æœ€è¿‘30åˆ†é’Ÿå‰è¢«å­˜å–è¿‡çš„æ–‡ä»¶
+find /home    -newer    tmp.txt               åœ¨/homeä¸‹æŸ¥æ›´æ–°æ—¶é—´æ¯”tmp.txtè¿‘çš„æ–‡ä»¶æˆ–ç›®å½•
+find /home    -anewer    tmp.txt              åœ¨/homeä¸‹æŸ¥å­˜å–æ—¶é—´æ¯”tmp.txtè¿‘çš„æ–‡ä»¶æˆ–ç›®å½•
+find    /home    -used    -2                    åˆ—å‡ºæ–‡ä»¶æˆ–ç›®å½•è¢«æ”¹åŠ¨è¿‡ä¹‹åŽï¼Œåœ¨2æ—¥å†…è¢«å­˜å–è¿‡çš„æ–‡ä»¶æˆ–ç›®å½•
+find    /home    -user cnscn                  åˆ—å‡º/homeç›®å½•å†…å±žäºŽç”¨æˆ·cnscnçš„æ–‡ä»¶æˆ–ç›®å½•
+find    /home    -uid    +501                   åˆ—å‡º/homeç›®å½•å†…ç”¨æˆ·çš„è¯†åˆ«ç å¤§äºŽ501çš„æ–‡ä»¶æˆ–ç›®å½•
+find    /home    -group    cnscn                åˆ—å‡º/homeå†…ç»„ä¸ºcnscnçš„æ–‡ä»¶æˆ–ç›®å½•
+find    /home    -gid 501                     åˆ—å‡º/homeå†…ç»„idä¸º501çš„æ–‡ä»¶æˆ–ç›®å½•
+find    /home    -nouser                      åˆ—å‡º/homeå†…ä¸å±žäºŽæœ¬åœ°ç”¨æˆ·çš„æ–‡ä»¶æˆ–ç›®å½•
+find    /home    -nogroup                     åˆ—å‡º/homeå†…ä¸å±žäºŽæœ¬åœ°ç»„çš„æ–‡ä»¶æˆ–ç›®å½•
+find    /home     -name tmp.txt     -maxdepth    4    åˆ—å‡º/homeå†…çš„tmp.txt æŸ¥æ—¶æ·±åº¦æœ€å¤šä¸º3å±‚
+find    /home    -name tmp.txt    -mindepth    3    ä»Žç¬¬2å±‚å¼€å§‹æŸ¥
+find    /home    -empty                       æŸ¥æ‰¾å¤§å°ä¸º0çš„æ–‡ä»¶æˆ–ç©ºç›®å½•
+find    /home    -size    +512k                 æŸ¥å¤§äºŽ512kçš„æ–‡ä»¶
+find    /home    -size    -512k                 æŸ¥å°äºŽ512kçš„æ–‡ä»¶
+find    /home    -links    +2                   æŸ¥ç¡¬è¿žæŽ¥æ•°å¤§äºŽ2çš„æ–‡ä»¶æˆ–ç›®å½•
+find    /home    -perm    0700                  æŸ¥æƒé™ä¸º700çš„æ–‡ä»¶æˆ–ç›®å½•
 find    /tmp    -name tmp.txt    -exec cat {} \;
-find    /tmp    -name    tmp.txt    -ok    rm {} \; find     /    -amin     -10         # ²éÕÒÔÚÏµÍ³ÖÐ×îºó10·ÖÖÓ·ÃÎÊµÄÎÄ¼þ
-find     /    -atime    -2           # ²éÕÒÔÚÏµÍ³ÖÐ×îºó48Ð¡Ê±·ÃÎÊµÄÎÄ¼þ
-find     /    -empty                # ²éÕÒÔÚÏµÍ³ÖÐÎª¿ÕµÄÎÄ¼þ»òÕßÎÄ¼þ¼Ð
-find     /    -group    cat          # ²éÕÒÔÚÏµÍ³ÖÐÊôÓÚ groupcatµÄÎÄ¼þ
-find     /    -mmin    -5           # ²éÕÒÔÚÏµÍ³ÖÐ×îºó5·ÖÖÓÀïÐÞ¸Ä¹ýµÄÎÄ¼þ
-find     /    -mtime    -1          #²éÕÒÔÚÏµÍ³ÖÐ×îºó24Ð¡Ê±ÀïÐÞ¸Ä¹ýµÄÎÄ¼þ
-find     /    -nouser               #²éÕÒÔÚÏµÍ³ÖÐÊôÓÚ×÷·ÏÓÃ»§µÄÎÄ¼þ
-find     /    -user     fred         #²éÕÒÔÚÏµÍ³ÖÐÊôÓÚFREDÕâ¸öÓÃ»§µÄÎÄ¼þ
+find    /tmp    -name    tmp.txt    -ok    rm {} \; find     /    -amin     -10         # æŸ¥æ‰¾åœ¨ç³»ç»Ÿä¸­æœ€åŽ10åˆ†é’Ÿè®¿é—®çš„æ–‡ä»¶
+find     /    -atime    -2           # æŸ¥æ‰¾åœ¨ç³»ç»Ÿä¸­æœ€åŽ48å°æ—¶è®¿é—®çš„æ–‡ä»¶
+find     /    -empty                # æŸ¥æ‰¾åœ¨ç³»ç»Ÿä¸­ä¸ºç©ºçš„æ–‡ä»¶æˆ–è€…æ–‡ä»¶å¤¹
+find     /    -group    cat          # æŸ¥æ‰¾åœ¨ç³»ç»Ÿä¸­å±žäºŽ groupcatçš„æ–‡ä»¶
+find     /    -mmin    -5           # æŸ¥æ‰¾åœ¨ç³»ç»Ÿä¸­æœ€åŽ5åˆ†é’Ÿé‡Œä¿®æ”¹è¿‡çš„æ–‡ä»¶
+find     /    -mtime    -1          #æŸ¥æ‰¾åœ¨ç³»ç»Ÿä¸­æœ€åŽ24å°æ—¶é‡Œä¿®æ”¹è¿‡çš„æ–‡ä»¶
+find     /    -nouser               #æŸ¥æ‰¾åœ¨ç³»ç»Ÿä¸­å±žäºŽä½œåºŸç”¨æˆ·çš„æ–‡ä»¶
+find     /    -user     fred         #æŸ¥æ‰¾åœ¨ç³»ç»Ÿä¸­å±žäºŽFREDè¿™ä¸ªç”¨æˆ·çš„æ–‡ä»¶
 
-²éµ±Ç°Ä¿Â¼ÏÂµÄËùÓÐÆÕÍ¨ÎÄ¼þ 
+æŸ¥å½“å‰ç›®å½•ä¸‹çš„æ‰€æœ‰æ™®é€šæ–‡ä»¶ 
 -------------------------------------------------------------------------------- # find . -type f -exec ls -l {} \; 
 -rw-r--r--      1 root       root          34928 2003-02-25    ./conf/httpd.conf 
 -rw-r--r--      1 root       root          12959 2003-02-25    ./conf/magic 
 -rw-r--r--      1 root       root            180 2003-02-25    ./conf.d/README 
-²éµ±Ç°Ä¿Â¼ÏÂµÄËùÓÐÆÕÍ¨ÎÄ¼þ£¬²¢ÔÚ- e x e cÑ¡ÏîÖÐÊ¹ÓÃls -lÃüÁî½«ËüÃÇÁÐ³ö 
+æŸ¥å½“å‰ç›®å½•ä¸‹çš„æ‰€æœ‰æ™®é€šæ–‡ä»¶ï¼Œå¹¶åœ¨- e x e cé€‰é¡¹ä¸­ä½¿ç”¨ls -lå‘½ä»¤å°†å®ƒä»¬åˆ—å‡º 
 =================================================
-ÔÚ/ l o g sÄ¿Â¼ÖÐ²éÕÒ¸ü¸ÄÊ±¼äÔÚ5ÈÕÒÔÇ°µÄÎÄ¼þ²¢É¾³ýËüÃÇ£º
+åœ¨/ l o g sç›®å½•ä¸­æŸ¥æ‰¾æ›´æ”¹æ—¶é—´åœ¨5æ—¥ä»¥å‰çš„æ–‡ä»¶å¹¶åˆ é™¤å®ƒä»¬ï¼š
 $ find logs -type f -mtime +5 -exec    -ok    rm {} \; 
 =================================================
-²éÑ¯µ±ÌìÐÞ¸Ä¹ýµÄÎÄ¼þ
+æŸ¥è¯¢å½“å¤©ä¿®æ”¹è¿‡çš„æ–‡ä»¶
 [root@book class]# find    ./    -mtime    -1    -type f    -exec    ls -l    {} \; 
 =================================================
-²éÑ¯ÎÄ¼þ²¢Ñ¯ÎÊÊÇ·ñÒªÏÔÊ¾
+æŸ¥è¯¢æ–‡ä»¶å¹¶è¯¢é—®æ˜¯å¦è¦æ˜¾ç¤º
 [root@book class]# find    ./    -mtime    -1    -type f    -ok    ls -l    {} \;  
 < ls ... ./classDB.inc.php > ? y
--rw-r--r--      1 cnscn      cnscn         13709    1ÔÂ 12 12:22 ./classDB.inc.php
+-rw-r--r--      1 cnscn      cnscn         13709    1æœˆ 12 12:22 ./classDB.inc.php
 [root@book class]# find    ./    -mtime    -1    -type f    -ok    ls -l    {} \;  
 < ls ... ./classDB.inc.php > ? n
 [root@book class]# =================================================
-²éÑ¯²¢½»¸øawkÈ¥´¦Àí
+æŸ¥è¯¢å¹¶äº¤ç»™awkåŽ»å¤„ç†
 [root@book class]# who    |    awk    '{print $1"\t"$2}'
 cnscn     pts/0 =================================================
 awk---grep---sed [root@book class]# df    -k |    awk '{print $1}' |    grep    -v    'none' |    sed    s"/\/dev\///g"
-ÎÄ¼þÏµÍ³
+æ–‡ä»¶ç³»ç»Ÿ
 sda2
 sda1
 [root@book class]# df    -k |    awk '{print $1}' |    grep    -v    'none'
-ÎÄ¼þÏµÍ³
+æ–‡ä»¶ç³»ç»Ÿ
 /dev/sda2
 /dev/sda1
 
 
-1)ÔÚ/tmpÖÐ²éÕÒËùÓÐµÄ*.h£¬²¢ÔÚÕâÐ©ÎÄ¼þÖÐ²éÕÒ¡°SYSCALL_VECTOR"£¬×îºó´òÓ¡³öËùÓÐ°üº¬"SYSCALL_VECTOR"µÄÎÄ¼þÃû A) find    /tmp    -name    "*.h"    | xargs    -n50    grep SYSCALL_VECTOR
+1)åœ¨/tmpä¸­æŸ¥æ‰¾æ‰€æœ‰çš„*.hï¼Œå¹¶åœ¨è¿™äº›æ–‡ä»¶ä¸­æŸ¥æ‰¾â€œSYSCALL_VECTOR"ï¼Œæœ€åŽæ‰“å°å‡ºæ‰€æœ‰åŒ…å«"SYSCALL_VECTOR"çš„æ–‡ä»¶å A) find    /tmp    -name    "*.h"    | xargs    -n50    grep SYSCALL_VECTOR
 B) grep    SYSCALL_VECTOR    /tmp/*.h | cut     -d':'    -f1| uniq > filename
 C) find    /tmp    -name "*.h"    -exec grep "SYSCALL_VECTOR"    {}    \; -print 
 2)find / -name filename -exec rm -rf {} \;
      find / -name filename -ok rm -rf {} \; 
-3)±ÈÈçÒª²éÕÒ´ÅÅÌÖÐ´óÓÚ3MµÄÎÄ¼þ£º
+3)æ¯”å¦‚è¦æŸ¥æ‰¾ç£ç›˜ä¸­å¤§äºŽ3Mçš„æ–‡ä»¶ï¼š
 find . -size +3000k -exec ls -ld {} ; 
-4)½«find³öÀ´µÄ¶«Î÷¿½µ½ÁíÒ»¸öµØ·½
-find *.c -exec cp '{}' /tmp ';' Èç¹ûÓÐÌØÊâÎÄ¼þ£¬¿ÉÒÔÓÃcpio£¬Ò²¿ÉÒÔÓÃÕâÑùµÄÓï·¨£º
+4)å°†findå‡ºæ¥çš„ä¸œè¥¿æ‹·åˆ°å¦ä¸€ä¸ªåœ°æ–¹
+find *.c -exec cp '{}' /tmp ';' å¦‚æžœæœ‰ç‰¹æ®Šæ–‡ä»¶ï¼Œå¯ä»¥ç”¨cpioï¼Œä¹Ÿå¯ä»¥ç”¨è¿™æ ·çš„è¯­æ³•ï¼š
 find dir -name filename -print | cpio -pdv newdir 
-6)²éÕÒ2004-11-30 16:36:37Ê±¸ü¸Ä¹ýµÄÎÄ¼þ
+6)æŸ¥æ‰¾2004-11-30 16:36:37æ—¶æ›´æ”¹è¿‡çš„æ–‡ä»¶
 # A=`find ./ -name "*php"` |    ls -l --full-time $A 2>/dev/null | grep "2004-11-30 16:36:37
-¶þ¡¢linuxÏÂfindÃüÁîµÄÓÃ·¨
-1. »ù±¾ÓÃ·¨£º
-      find / -name ÎÄ¼þÃû      find ver1.d ver2.d -name '*.c' -print    ²éÕÒver1.d,ver2.d *.cÎÄ¼þ²¢´òÓ¡      find . -type d -print ´Óµ±Ç°Ä¿Â¼²éÕÒ£¬½ö²éÕÒÄ¿Â¼£¬ÕÒµ½ºó£¬´òÓ¡Â·¾¶Ãû¡£¿ÉÓÃÓÚ´òÓ¡Ä¿Â¼½á¹¹¡£
-2. ÎÞ´íÎó²éÕÒ£º
+äºŒã€linuxä¸‹findå‘½ä»¤çš„ç”¨æ³•
+1. åŸºæœ¬ç”¨æ³•ï¼š
+      find / -name æ–‡ä»¶å      find ver1.d ver2.d -name '*.c' -print    æŸ¥æ‰¾ver1.d,ver2.d *.cæ–‡ä»¶å¹¶æ‰“å°      find . -type d -print ä»Žå½“å‰ç›®å½•æŸ¥æ‰¾ï¼Œä»…æŸ¥æ‰¾ç›®å½•ï¼Œæ‰¾åˆ°åŽï¼Œæ‰“å°è·¯å¾„åã€‚å¯ç”¨äºŽæ‰“å°ç›®å½•ç»“æž„ã€‚
+2. æ— é”™è¯¯æŸ¥æ‰¾ï¼š
       find / -name access_log 2 >/dev/null
-3. °´³ß´ç²éÕÒ£º
-      find / -size 1500c £¨²éÕÒ1,500×Ö½Ú´óÐ¡µÄÎÄ¼þ£¬c±íÊ¾×Ö½Ú£©
-      find / -size +1500c £¨²éÕÒ´óÓÚ1,500×Ö½Ú´óÐ¡µÄÎÄ¼þ£¬+±íÊ¾´óÓÚ£©    
-      find / -size +1500c £¨²éÕÒÐ¡ÓÚ1,500×Ö½Ú´óÐ¡µÄÎÄ¼þ£¬-±íÊ¾Ð¡ÓÚ£©    
-4. °´Ê±¼ä£º
-      find / -amin n ×îºón·ÖÖÓ 
-      find / -atime n ×îºónÌì
-      find / -cmin n ×îºón·ÖÖÓ¸Ä±ä×´Ì¬
-      find / -ctime n ×îºónÌì¸Ä±ä×´Ì¬
-5. ÆäËü£º
-      find / -empty ¿Õ°×ÎÄ¼þ¡¢¿Õ°×ÎÄ¼þ¼Ð¡¢Ã»ÓÐ×ÓÄ¿Â¼µÄÎÄ¼þ¼Ð
-      find / -false ²éÕÒÏµÍ³ÖÐ×ÜÊÇ´íÎóµÄÎÄ¼þ
-      find / -fstype type ÕÒ´æÔÚÓÚÖ¸¶¨ÎÄ¼þÏµÍ³µÄÎÄ¼þ£¬ÈçtypeÎªext2
-      find / -gid n ×éidÎªnµÄÎÄ¼þ
-      find / -group gname ×éÃûÎªgnameµÄÎÄ¼þ
-      find / -depth n ÔÚÄ³²ãÖ¸¶¨Ä¿Â¼ÖÐÓÅÏÈ²éÕÒÎÄ¼þÄÚÈÝ
-      find / -maxdepth levels ÔÚÄ³¸ö²ã´ÎÄ¿Â¼ÖÐ°´µÝ¼õ·½Ê½²éÕÒ
-6. Âß¼­
-      -and Ìõ¼þÓë -or Ìõ¼þ»ò
-7. ²éÕÒ×Ö·û´®
+3. æŒ‰å°ºå¯¸æŸ¥æ‰¾ï¼š
+      find / -size 1500c ï¼ˆæŸ¥æ‰¾1,500å­—èŠ‚å¤§å°çš„æ–‡ä»¶ï¼Œcè¡¨ç¤ºå­—èŠ‚ï¼‰
+      find / -size +1500c ï¼ˆæŸ¥æ‰¾å¤§äºŽ1,500å­—èŠ‚å¤§å°çš„æ–‡ä»¶ï¼Œ+è¡¨ç¤ºå¤§äºŽï¼‰    
+      find / -size +1500c ï¼ˆæŸ¥æ‰¾å°äºŽ1,500å­—èŠ‚å¤§å°çš„æ–‡ä»¶ï¼Œ-è¡¨ç¤ºå°äºŽï¼‰    
+4. æŒ‰æ—¶é—´ï¼š
+      find / -amin n æœ€åŽnåˆ†é’Ÿ 
+      find / -atime n æœ€åŽnå¤©
+      find / -cmin n æœ€åŽnåˆ†é’Ÿæ”¹å˜çŠ¶æ€
+      find / -ctime n æœ€åŽnå¤©æ”¹å˜çŠ¶æ€
+5. å…¶å®ƒï¼š
+      find / -empty ç©ºç™½æ–‡ä»¶ã€ç©ºç™½æ–‡ä»¶å¤¹ã€æ²¡æœ‰å­ç›®å½•çš„æ–‡ä»¶å¤¹
+      find / -false æŸ¥æ‰¾ç³»ç»Ÿä¸­æ€»æ˜¯é”™è¯¯çš„æ–‡ä»¶
+      find / -fstype type æ‰¾å­˜åœ¨äºŽæŒ‡å®šæ–‡ä»¶ç³»ç»Ÿçš„æ–‡ä»¶ï¼Œå¦‚typeä¸ºext2
+      find / -gid n ç»„idä¸ºnçš„æ–‡ä»¶
+      find / -group gname ç»„åä¸ºgnameçš„æ–‡ä»¶
+      find / -depth n åœ¨æŸå±‚æŒ‡å®šç›®å½•ä¸­ä¼˜å…ˆæŸ¥æ‰¾æ–‡ä»¶å†…å®¹
+      find / -maxdepth levels åœ¨æŸä¸ªå±‚æ¬¡ç›®å½•ä¸­æŒ‰é€’å‡æ–¹å¼æŸ¥æ‰¾
+6. é€»è¾‘
+      -and æ¡ä»¶ä¸Ž -or æ¡ä»¶æˆ–
+7. æŸ¥æ‰¾å­—ç¬¦ä¸²
       find . -name '*.html' -exec grep 'mailto:'{}
 
 
 
-LinuxÏÂ²éÕÒÎÄ¼þµÄÃüÁîÓÐÁ½¸ö;locate ºÍ find
+Linuxä¸‹æŸ¥æ‰¾æ–‡ä»¶çš„å‘½ä»¤æœ‰ä¸¤ä¸ª;locate å’Œ find
  
-Ê×ÏÈËµÏÂlocate£¬locateÕâ¸öÃüÁîÊÇ¶ÔÆäÉú³ÉµÄÊý¾Ý¿â½øÐÐ±éÀú£¨Éú³ÉÊý¾Ý¿âµÄÃüÁî£ºupdatedb£©,ÕâÒ»ÌØÐÔ¾ö¶¨ÁËÓÃlocate²éÕÒÎÄ¼þËÙ¶ÈºÜ¿ì£¬µ«ÊÇlocateÃüÁîÖ»ÄÜ¶ÔÎÄ¼þ½øÐÐÄ£ºýÆ¥Åä£¬ÔÚ¾«È·¶ÈÉÏÀ´Ëµ²îÁËµã£¬¼òµ¥½éÉÜÏÂËüµÄÁ½¸öÑ¡Ïî£º
+é¦–å…ˆè¯´ä¸‹locateï¼Œlocateè¿™ä¸ªå‘½ä»¤æ˜¯å¯¹å…¶ç”Ÿæˆçš„æ•°æ®åº“è¿›è¡ŒéåŽ†ï¼ˆç”Ÿæˆæ•°æ®åº“çš„å‘½ä»¤ï¼šupdatedbï¼‰,è¿™ä¸€ç‰¹æ€§å†³å®šäº†ç”¨locateæŸ¥æ‰¾æ–‡ä»¶é€Ÿåº¦å¾ˆå¿«ï¼Œä½†æ˜¯locateå‘½ä»¤åªèƒ½å¯¹æ–‡ä»¶è¿›è¡Œæ¨¡ç³ŠåŒ¹é…ï¼Œåœ¨ç²¾ç¡®åº¦ä¸Šæ¥è¯´å·®äº†ç‚¹ï¼Œç®€å•ä»‹ç»ä¸‹å®ƒçš„ä¸¤ä¸ªé€‰é¡¹ï¼š
   #locate 
-             -i        //²éÕÒÎÄ¼þµÄÊ±ºò²»Çø·Ö´óÐ¡Ð´ ±ÈÈç£ºlocate  ¨Ci   passwd
-       -n       //Ö»ÏÔÊ¾²éÕÒ½á¹ûµÄÇ°NÐÐ     ±ÈÈç£ºlocate  -n  5   passwd
+             -i        //æŸ¥æ‰¾æ–‡ä»¶çš„æ—¶å€™ä¸åŒºåˆ†å¤§å°å†™ æ¯”å¦‚ï¼šlocate  â€“i   passwd
+       -n       //åªæ˜¾ç¤ºæŸ¥æ‰¾ç»“æžœçš„å‰Nè¡Œ     æ¯”å¦‚ï¼šlocate  -n  5   passwd
  
-ÏÂÃæÖØµãËµÏÂfind£¬findÔÚ²»Ö¸¶¨²éÕÒÄ¿Â¼µÄÇé¿öÏÂÊÇ¶ÔÕû¸öÏµÍ³½øÐÐ±éÀú²éÕÒ
+ä¸‹é¢é‡ç‚¹è¯´ä¸‹findï¼Œfindåœ¨ä¸æŒ‡å®šæŸ¥æ‰¾ç›®å½•çš„æƒ…å†µä¸‹æ˜¯å¯¹æ•´ä¸ªç³»ç»Ÿè¿›è¡ŒéåŽ†æŸ¥æ‰¾
  
-  Ê¹ÓÃ¸ñÊ½ £º   find  [Ö¸¶¨²éÕÒÄ¿Â¼]  [²éÕÒ¹æÔò]  [²éÕÒÍêºóÖ´ÐÐµÄaction]
+  ä½¿ç”¨æ ¼å¼ ï¼š   find  [æŒ‡å®šæŸ¥æ‰¾ç›®å½•]  [æŸ¥æ‰¾è§„åˆ™]  [æŸ¥æ‰¾å®ŒåŽæ‰§è¡Œçš„action]
  
-  [Ö¸¶¨²éÕÒÄ¿Â¼]ÀýÈç:
+  [æŒ‡å®šæŸ¥æ‰¾ç›®å½•]ä¾‹å¦‚:
 
-ÕâÀïÒª×¢ÒâµÄÊÇÄ¿Â¼Ö®¼äÒªÓÃ¿Õ¸ñ·Ö¿ª
-  [²éÕÒ¹æÔò] 
-        £¨1£©¸ù¾ÝÎÄ¼þÃû²éÕÒ
-           #  -name       //¸ù¾ÝÎÄ¼þÃû²éÕÒ£¨¾«È·²éÕÒ£©
-           #  -iname       //¸ù¾ÝÎÄ¼þÃû²éÕÒ£¬µ«ÊÇ²»Çø·Ö´óÐ¡Ð´ 
+è¿™é‡Œè¦æ³¨æ„çš„æ˜¯ç›®å½•ä¹‹é—´è¦ç”¨ç©ºæ ¼åˆ†å¼€
+  [æŸ¥æ‰¾è§„åˆ™] 
+        ï¼ˆ1ï¼‰æ ¹æ®æ–‡ä»¶åæŸ¥æ‰¾
+           #  -name       //æ ¹æ®æ–‡ä»¶åæŸ¥æ‰¾ï¼ˆç²¾ç¡®æŸ¥æ‰¾ï¼‰
+           #  -iname       //æ ¹æ®æ–‡ä»¶åæŸ¥æ‰¾ï¼Œä½†æ˜¯ä¸åŒºåˆ†å¤§å°å†™ 
  
-ÕâÀïÁíÍâ½éÉÜÏÂÎÄ¼þÃûÍ¨ÅäµÄÖªÊ¶
+è¿™é‡Œå¦å¤–ä»‹ç»ä¸‹æ–‡ä»¶åé€šé…çš„çŸ¥è¯†
  
-*±íÊ¾  Í¨ÅäÈÎÒâµÄ×Ö·û
+*è¡¨ç¤º  é€šé…ä»»æ„çš„å­—ç¬¦
  
  
           
- £¿±íÊ¾  Í¨ÅäÈÎÒâµÄµ¥¸ö×Ö·û
+ ï¼Ÿè¡¨ç¤º  é€šé…ä»»æ„çš„å•ä¸ªå­—ç¬¦
 
          
-[ ] ±íÊ¾ Í¨ÅäÀ¨ºÅÀïÃæµÄÈÎÒâÒ»¸ö×Ö·û
+[ ] è¡¨ç¤º é€šé…æ‹¬å·é‡Œé¢çš„ä»»æ„ä¸€ä¸ªå­—ç¬¦
 
-     £¨2£©£¬¸ù¾ÝÎÄ¼þËùÊôÓÃ»§ºÍ×éÀ´²éÕÒÎÄ¼þ
-           #  -user         //¸ù¾ÝÊôÖ÷À´²éÕÒÎÄ¼þ
-           #  -group        //¸ù¾ÝÊô×éÀ´²éÕÒÎÄ¼þ
+     ï¼ˆ2ï¼‰ï¼Œæ ¹æ®æ–‡ä»¶æ‰€å±žç”¨æˆ·å’Œç»„æ¥æŸ¥æ‰¾æ–‡ä»¶
+           #  -user         //æ ¹æ®å±žä¸»æ¥æŸ¥æ‰¾æ–‡ä»¶
+           #  -group        //æ ¹æ®å±žç»„æ¥æŸ¥æ‰¾æ–‡ä»¶
  
  
-          £¨3£©£¬¸ù¾Ýuid ºÍ gidÀ´²éÕÒÓÃ»§
-           #find  /tmp  -uid  500  //²éÕÒuidÊÇ500 µÄÎÄ¼þ
-           #find  /tmp  -gid  1000 // ²éÕÒgidÊÇ1000µÄÎÄ¼þ
+          ï¼ˆ3ï¼‰ï¼Œæ ¹æ®uid å’Œ gidæ¥æŸ¥æ‰¾ç”¨æˆ·
+           #find  /tmp  -uid  500  //æŸ¥æ‰¾uidæ˜¯500 çš„æ–‡ä»¶
+           #find  /tmp  -gid  1000 // æŸ¥æ‰¾gidæ˜¯1000çš„æ–‡ä»¶
  
  
-          £¨4£©£¬-a  and  -o  and  ¨CnotµÄÊ¹ÓÃ
-           # -a Á¬½ÓÁ½¸ö²»Í¬µÄÌõ¼þ£¨Á½¸öÌõ¼þ±ØÐëÍ¬Ê±Âú×ã£©
+          ï¼ˆ4ï¼‰ï¼Œ-a  and  -o  and  â€“notçš„ä½¿ç”¨
+           # -a è¿žæŽ¥ä¸¤ä¸ªä¸åŒçš„æ¡ä»¶ï¼ˆä¸¤ä¸ªæ¡ä»¶å¿…é¡»åŒæ—¶æ»¡è¶³ï¼‰
 
  
    
-          # -o Á¬½ÓÁ½¸ö²»Í¬µÄÌõ¼þ£¨Á½¸öÌõ¼þÂú×ãÆäÒ»¼´¿É£©
-          # -not ¶ÔÌõ¼þÈ¡·´µÄ
+          # -o è¿žæŽ¥ä¸¤ä¸ªä¸åŒçš„æ¡ä»¶ï¼ˆä¸¤ä¸ªæ¡ä»¶æ»¡è¶³å…¶ä¸€å³å¯ï¼‰
+          # -not å¯¹æ¡ä»¶å–åçš„
       
   
  
-    £¨5£©£¬¸ù¾ÝÎÄ¼þÊ±¼ä´ÁµÄÏà¹ØÊôÐÔÀ´²éÕÒÎÄ¼þ
-          ÎÒÃÇ¿ÉÒÔÊ¹ÓÃstatÃüÁîÀ´²é¿´Ò»¸öÎÄ¼þµÄÊ±¼äÐÅÏ¢ ÈçÏÂ£º
+    ï¼ˆ5ï¼‰ï¼Œæ ¹æ®æ–‡ä»¶æ—¶é—´æˆ³çš„ç›¸å…³å±žæ€§æ¥æŸ¥æ‰¾æ–‡ä»¶
+          æˆ‘ä»¬å¯ä»¥ä½¿ç”¨statå‘½ä»¤æ¥æŸ¥çœ‹ä¸€ä¸ªæ–‡ä»¶çš„æ—¶é—´ä¿¡æ¯ å¦‚ä¸‹ï¼š
  
 
       
@@ -516,175 +516,175 @@ LinuxÏÂ²éÕÒÎÄ¼þµÄÃüÁîÓÐÁ½¸ö;locate ºÍ find
            #-mmin
            #-cmin
  
-   ËùÒÔÕâÀïatime,mtime,ctime¾ÍÊÇ·Ö±ð¶ÔÓ¦µÄ¡°×î½üÒ»´Î·ÃÎÊÊ±¼ä¡±¡°×î½üÒ»´ÎÄÚÈÝÐÞ¸ÄÊ±¼ä¡±¡°×î½üÒ»´ÎÊôÐÔÐÞ¸ÄÊ±¼ä¡±£¬ÕâÀïµÄatimeµÄµ¥Î»Ö¸µÄÊÇ¡°Ìì¡±£¬aminµÄµ¥Î»ÊÇ·ÖÖÓ  
+   æ‰€ä»¥è¿™é‡Œatime,mtime,ctimeå°±æ˜¯åˆ†åˆ«å¯¹åº”çš„â€œæœ€è¿‘ä¸€æ¬¡è®¿é—®æ—¶é—´â€â€œæœ€è¿‘ä¸€æ¬¡å†…å®¹ä¿®æ”¹æ—¶é—´â€â€œæœ€è¿‘ä¸€æ¬¡å±žæ€§ä¿®æ”¹æ—¶é—´â€ï¼Œè¿™é‡Œçš„atimeçš„å•ä½æŒ‡çš„æ˜¯â€œå¤©â€ï¼Œaminçš„å•ä½æ˜¯åˆ†é’Ÿ  
  
-          #find  /tmp  ¨Catime  +5           //±íÊ¾²éÕÒÔÚÎåÌìÄÚÃ»ÓÐ·ÃÎÊ¹ýµÄÎÄ¼þ
-          #find  /tmp  -atime  -5            //±íÊ¾²éÕÒÔÚÎåÌìÄÚ·ÃÎÊ¹ýµÄÎÄ¼þ
+          #find  /tmp  â€“atime  +5           //è¡¨ç¤ºæŸ¥æ‰¾åœ¨äº”å¤©å†…æ²¡æœ‰è®¿é—®è¿‡çš„æ–‡ä»¶
+          #find  /tmp  -atime  -5            //è¡¨ç¤ºæŸ¥æ‰¾åœ¨äº”å¤©å†…è®¿é—®è¿‡çš„æ–‡ä»¶
           
-          £¨6£©£¬¸ù¾ÝÎÄ¼þÀàÐÍÀ´²éÕÒÎÄ¼þ
+          ï¼ˆ6ï¼‰ï¼Œæ ¹æ®æ–‡ä»¶ç±»åž‹æ¥æŸ¥æ‰¾æ–‡ä»¶
                 -type
-                      f     // ÆÕÍ¨ÎÄ¼þ
-                      d     //Ä¿Â¼ÎÄ¼þ
-                      l     //Á´½ÓÎÄ¼þ
-                      b     //¿éÉè±¸ÎÄ¼þ
-                      c     //×Ö·ûÉè±¸ÎÄ¼þ
-                      p     //¹ÜµÀÎÄ¼þ
-                      s     //socketÎÄ¼þ
+                      f     // æ™®é€šæ–‡ä»¶
+                      d     //ç›®å½•æ–‡ä»¶
+                      l     //é“¾æŽ¥æ–‡ä»¶
+                      b     //å—è®¾å¤‡æ–‡ä»¶
+                      c     //å­—ç¬¦è®¾å¤‡æ–‡ä»¶
+                      p     //ç®¡é“æ–‡ä»¶
+                      s     //socketæ–‡ä»¶
  
   
 
  
-        £¨7£©£¬¸ù¾Ý´óÐ¡À´²éÕÒÎÄ¼þ
+        ï¼ˆ7ï¼‰ï¼Œæ ¹æ®å¤§å°æ¥æŸ¥æ‰¾æ–‡ä»¶
  
                -size
  
-          #find  /tmp  -size   2M           //²éÕÒÔÚ/tmp Ä¿Â¼ÏÂµÈÓÚ2MµÄÎÄ¼þ
-          #find  /tmp  -size  +2M           //²éÕÒÔÚ/tmp Ä¿Â¼ÏÂ´óÓÚ2MµÄÎÄ¼þ
-          #find  /tmp  -size  -2M           //²éÕÒÔÚ/tmp Ä¿Â¼ÏÂÐ¡ÓÚ2MµÄÎÄ¼þ
+          #find  /tmp  -size   2M           //æŸ¥æ‰¾åœ¨/tmp ç›®å½•ä¸‹ç­‰äºŽ2Mçš„æ–‡ä»¶
+          #find  /tmp  -size  +2M           //æŸ¥æ‰¾åœ¨/tmp ç›®å½•ä¸‹å¤§äºŽ2Mçš„æ–‡ä»¶
+          #find  /tmp  -size  -2M           //æŸ¥æ‰¾åœ¨/tmp ç›®å½•ä¸‹å°äºŽ2Mçš„æ–‡ä»¶
  
  
-           £¨8£©£¬¸ù¾ÝÎÄ¼þÈ¨ÏÞ²éÕÒÎÄ¼þ
+           ï¼ˆ8ï¼‰ï¼Œæ ¹æ®æ–‡ä»¶æƒé™æŸ¥æ‰¾æ–‡ä»¶
  
               -perm
  
-          #find  /tmp  -perm  755           //²éÕÒÔÚ/tmpÄ¿Â¼ÏÂÈ¨ÏÞÊÇ755µÄÎÄ¼þ
-          #find  /tmp  -perm  +222          //±íÊ¾Ö»ÒªÓÐÒ»ÀàÓÃ»§£¨ÊôÖ÷£¬Êô×é£¬ÆäËû£©µÄÆ¥ÅäÐ´È¨ÏÞ¾ÍÐÐ
-          #find  /tmp  -perm  -222          //±íÊ¾±ØÐëËùÓÐÀà±ðÓÃ»§¶¼Âú×ãÓÐÐ´È¨ÏÞ
+          #find  /tmp  -perm  755           //æŸ¥æ‰¾åœ¨/tmpç›®å½•ä¸‹æƒé™æ˜¯755çš„æ–‡ä»¶
+          #find  /tmp  -perm  +222          //è¡¨ç¤ºåªè¦æœ‰ä¸€ç±»ç”¨æˆ·ï¼ˆå±žä¸»ï¼Œå±žç»„ï¼Œå…¶ä»–ï¼‰çš„åŒ¹é…å†™æƒé™å°±è¡Œ
+          #find  /tmp  -perm  -222          //è¡¨ç¤ºå¿…é¡»æ‰€æœ‰ç±»åˆ«ç”¨æˆ·éƒ½æ»¡è¶³æœ‰å†™æƒé™
  
-           £¨9£©£¬-nouser  and  -nogroup
+           ï¼ˆ9ï¼‰ï¼Œ-nouser  and  -nogroup
  
-          #find  /  -nogroup ¨Ca ¨Cnouser       //ÔÚÕû¸öÏµÍ³ÖÐ²éÕÒ¼ÈÃ»ÓÐÊôÖ÷ÓÖÃ»ÓÐÊô×éµÄÎÄ¼þ£¨ÕâÑùµÄÎÄ¼þÍ¨³£ÊÇºÜÎ£ÏÕµÄ£¬×÷ÎªÏµÍ³¹¤³ÌÊ¦µÄÎÒÃÇÓ¦¸Ã¼°Ê±Çå³ýµô£©
+          #find  /  -nogroup â€“a â€“nouser       //åœ¨æ•´ä¸ªç³»ç»Ÿä¸­æŸ¥æ‰¾æ—¢æ²¡æœ‰å±žä¸»åˆæ²¡æœ‰å±žç»„çš„æ–‡ä»¶ï¼ˆè¿™æ ·çš„æ–‡ä»¶é€šå¸¸æ˜¯å¾ˆå±é™©çš„ï¼Œä½œä¸ºç³»ç»Ÿå·¥ç¨‹å¸ˆçš„æˆ‘ä»¬åº”è¯¥åŠæ—¶æ¸…é™¤æŽ‰ï¼‰
  
-  [²éÕÒÍêÖ´ÐÐµÄaction]
+  [æŸ¥æ‰¾å®Œæ‰§è¡Œçš„action]
  
-         # -print                                 //Ä¬ÈÏÇé¿öÏÂµÄ¶¯×÷
-         # -ls                                     //²éÕÒµ½ºóÓÃls ÏÔÊ¾³öÀ´
-         # -ok  [commend]                //²éÕÒºóÖ´ÐÐÃüÁîµÄÊ±ºòÑ¯ÎÊÓÃ»§ÊÇ·ñÒªÖ´ÐÐ
-        # -exec [commend]              //²éÕÒºóÖ´ÐÐÃüÁîµÄÊ±ºò²»Ñ¯ÎÊÓÃ»§£¬Ö±½ÓÖ´ÐÐ
+         # -print                                 //é»˜è®¤æƒ…å†µä¸‹çš„åŠ¨ä½œ
+         # -ls                                     //æŸ¥æ‰¾åˆ°åŽç”¨ls æ˜¾ç¤ºå‡ºæ¥
+         # -ok  [commend]                //æŸ¥æ‰¾åŽæ‰§è¡Œå‘½ä»¤çš„æ—¶å€™è¯¢é—®ç”¨æˆ·æ˜¯å¦è¦æ‰§è¡Œ
+        # -exec [commend]              //æŸ¥æ‰¾åŽæ‰§è¡Œå‘½ä»¤çš„æ—¶å€™ä¸è¯¢é—®ç”¨æˆ·ï¼Œç›´æŽ¥æ‰§è¡Œ
  
  
  
 
  
-ÕâÀïÒª×¢Òâ{}µÄÊ¹ÓÃ£ºÌæ´ú²éÕÒµ½µÄÎÄ¼þ
+è¿™é‡Œè¦æ³¨æ„{}çš„ä½¿ç”¨ï¼šæ›¿ä»£æŸ¥æ‰¾åˆ°çš„æ–‡ä»¶
  
    
-     #find  /tmp  -atime  +30  ¨Cexec rm ¨Crf  {}  \£» #É¾³ý²éÕÒµ½µÄ³¬¹ý30ÌìÃ»ÓÐ·ÃÎÊ¹ýÎÄ¼þ
+     #find  /tmp  -atime  +30  â€“exec rm â€“rf  {}  \ï¼› #åˆ é™¤æŸ¥æ‰¾åˆ°çš„è¶…è¿‡30å¤©æ²¡æœ‰è®¿é—®è¿‡æ–‡ä»¶
  
-     ÎÒÃÇÒ²¿ÉÒÔÊ¹ÓÃxargsÀ´¶Ô²éÕÒµ½µÄÎÄ¼þ½øÒ»
+     æˆ‘ä»¬ä¹Ÿå¯ä»¥ä½¿ç”¨xargsæ¥å¯¹æŸ¥æ‰¾åˆ°çš„æ–‡ä»¶è¿›ä¸€
 
-²½²Ù×÷
+æ­¥æ“ä½œ
     
 
 
 
 
 
-linux grepÃüÁî
-1.×÷ÓÃ
-LinuxÏµÍ³ÖÐgrepÃüÁîÊÇÒ»ÖÖÇ¿´óµÄÎÄ±¾ËÑË÷¹¤¾ß£¬ËüÄÜÊ¹ÓÃÕýÔò±í´ïÊ½ËÑË÷ÎÄ±¾£¬²¢°ÑÆ¥ ÅäµÄÐÐ´òÓ¡³öÀ´¡£grepÈ«³ÆÊÇGlobal Regular Expression Print£¬±íÊ¾È«¾ÖÕýÔò±í´ïÊ½°æ±¾£¬ËüµÄÊ¹ÓÃÈ¨ÏÞÊÇËùÓÐÓÃ»§¡£
+linux grepå‘½ä»¤
+1.ä½œç”¨
+Linuxç³»ç»Ÿä¸­grepå‘½ä»¤æ˜¯ä¸€ç§å¼ºå¤§çš„æ–‡æœ¬æœç´¢å·¥å…·ï¼Œå®ƒèƒ½ä½¿ç”¨æ­£åˆ™è¡¨è¾¾å¼æœç´¢æ–‡æœ¬ï¼Œå¹¶æŠŠåŒ¹ é…çš„è¡Œæ‰“å°å‡ºæ¥ã€‚grepå…¨ç§°æ˜¯Global Regular Expression Printï¼Œè¡¨ç¤ºå…¨å±€æ­£åˆ™è¡¨è¾¾å¼ç‰ˆæœ¬ï¼Œå®ƒçš„ä½¿ç”¨æƒé™æ˜¯æ‰€æœ‰ç”¨æˆ·ã€‚
 
-2.¸ñÊ½
+2.æ ¼å¼
 grep [options]
 
-3.Ö÷Òª²ÎÊý
-[options]Ö÷Òª²ÎÊý£º
-£­c£ºÖ»Êä³öÆ¥ÅäÐÐµÄ¼ÆÊý¡£
-£­I£º²»Çø·Ö´ó Ð¡Ð´(Ö»ÊÊÓÃÓÚµ¥×Ö·û)¡£
-£­h£º²éÑ¯¶àÎÄ¼þÊ±²»ÏÔÊ¾ÎÄ¼þÃû¡£
-£­l£º²éÑ¯¶àÎÄ¼þÊ±Ö»Êä³ö°üº¬Æ¥Åä×Ö·ûµÄÎÄ¼þÃû¡£
-£­n£ºÏÔÊ¾Æ¥ÅäÐÐ¼° ÐÐºÅ¡£
-£­s£º²»ÏÔÊ¾²»´æÔÚ»òÎÞÆ¥ÅäÎÄ±¾µÄ´íÎóÐÅÏ¢¡£
-£­v£ºÏÔÊ¾²»°üº¬Æ¥ÅäÎÄ±¾µÄËùÓÐÐÐ¡£
-patternÕýÔò±í´ïÊ½Ö÷Òª²ÎÊý£º
-\£º ºöÂÔÕýÔò±í´ïÊ½ÖÐÌØÊâ×Ö·ûµÄÔ­ÓÐº¬Òå¡£
-^£ºÆ¥ÅäÕýÔò±í´ïÊ½µÄ¿ªÊ¼ÐÐ¡£
-$: Æ¥ÅäÕýÔò±í´ïÊ½µÄ½áÊøÐÐ¡£
-\<£º´ÓÆ¥ÅäÕýÔò±í´ï Ê½µÄÐÐ¿ªÊ¼¡£
-\>£ºµ½Æ¥ÅäÕýÔò±í´ïÊ½µÄÐÐ½áÊø¡£
-[ ]£ºµ¥¸ö×Ö·û£¬Èç[A]¼´A·ûºÏÒªÇó ¡£
-[ - ]£º·¶Î§£¬Èç[A-Z]£¬¼´A¡¢B¡¢CÒ»Ö±µ½Z¶¼·ûºÏÒªÇó ¡£
-¡££ºËùÓÐµÄµ¥¸ö×Ö·û¡£
-* £ºÓÐ×Ö·û£¬³¤¶È¿ÉÒÔÎª0¡£
+3.ä¸»è¦å‚æ•°
+[options]ä¸»è¦å‚æ•°ï¼š
+ï¼cï¼šåªè¾“å‡ºåŒ¹é…è¡Œçš„è®¡æ•°ã€‚
+ï¼Iï¼šä¸åŒºåˆ†å¤§ å°å†™(åªé€‚ç”¨äºŽå•å­—ç¬¦)ã€‚
+ï¼hï¼šæŸ¥è¯¢å¤šæ–‡ä»¶æ—¶ä¸æ˜¾ç¤ºæ–‡ä»¶åã€‚
+ï¼lï¼šæŸ¥è¯¢å¤šæ–‡ä»¶æ—¶åªè¾“å‡ºåŒ…å«åŒ¹é…å­—ç¬¦çš„æ–‡ä»¶åã€‚
+ï¼nï¼šæ˜¾ç¤ºåŒ¹é…è¡ŒåŠ è¡Œå·ã€‚
+ï¼sï¼šä¸æ˜¾ç¤ºä¸å­˜åœ¨æˆ–æ— åŒ¹é…æ–‡æœ¬çš„é”™è¯¯ä¿¡æ¯ã€‚
+ï¼vï¼šæ˜¾ç¤ºä¸åŒ…å«åŒ¹é…æ–‡æœ¬çš„æ‰€æœ‰è¡Œã€‚
+patternæ­£åˆ™è¡¨è¾¾å¼ä¸»è¦å‚æ•°ï¼š
+\ï¼š å¿½ç•¥æ­£åˆ™è¡¨è¾¾å¼ä¸­ç‰¹æ®Šå­—ç¬¦çš„åŽŸæœ‰å«ä¹‰ã€‚
+^ï¼šåŒ¹é…æ­£åˆ™è¡¨è¾¾å¼çš„å¼€å§‹è¡Œã€‚
+$: åŒ¹é…æ­£åˆ™è¡¨è¾¾å¼çš„ç»“æŸè¡Œã€‚
+\<ï¼šä»ŽåŒ¹é…æ­£åˆ™è¡¨è¾¾ å¼çš„è¡Œå¼€å§‹ã€‚
+\>ï¼šåˆ°åŒ¹é…æ­£åˆ™è¡¨è¾¾å¼çš„è¡Œç»“æŸã€‚
+[ ]ï¼šå•ä¸ªå­—ç¬¦ï¼Œå¦‚[A]å³Aç¬¦åˆè¦æ±‚ ã€‚
+[ - ]ï¼šèŒƒå›´ï¼Œå¦‚[A-Z]ï¼Œå³Aã€Bã€Cä¸€ç›´åˆ°Zéƒ½ç¬¦åˆè¦æ±‚ ã€‚
+ã€‚ï¼šæ‰€æœ‰çš„å•ä¸ªå­—ç¬¦ã€‚
+* ï¼šæœ‰å­—ç¬¦ï¼Œé•¿åº¦å¯ä»¥ä¸º0ã€‚
 
-4.grepÃüÁîÊ¹ÓÃ¼òµ¥ÊµÀý
-$ grep ¡®test¡¯ d*
-ÏÔÊ¾ËùÓÐÒÔd¿ªÍ·µÄÎÄ¼þÖÐ°üº¬ testµÄÐÐ¡£
-$ grep ¡®test¡¯ aa bb cc
-ÏÔÊ¾ÔÚaa£¬bb£¬ccÎÄ¼þÖÐÆ¥ÅätestµÄÐÐ¡£
-$ grep ¡®[a-z]\{5\}¡¯ aa
-ÏÔÊ¾ËùÓÐ°üº¬Ã¿¸ö×Ö·û´®ÖÁÉÙÓÐ5¸öÁ¬ÐøÐ¡Ð´×Ö·ûµÄ×Ö·û´®µÄÐÐ¡£
-$ grep ¡®w\(es\)t.*\1¡ä aa
-Èç¹ûwest±»Æ¥Åä£¬Ôòes¾Í±»´æ´¢µ½ÄÚ´æÖÐ£¬²¢±ê¼ÇÎª1£¬È»ºóËÑË÷ÈÎÒâ¸ö×Ö·û(.*)£¬ÕâÐ©×Ö·ûºóÃæ½ô¸ú×Å ÁíÍâÒ»¸öes(\1)£¬ÕÒµ½¾ÍÏÔÊ¾¸ÃÐÐ¡£Èç¹ûÓÃegrep»ògrep -E£¬¾Í²»ÓÃ¡±\¡±ºÅ½øÐÐ×ªÒå£¬Ö±½ÓÐ´³É¡¯w(es)t.*\1¡ä¾Í¿ÉÒÔÁË¡£
+4.grepå‘½ä»¤ä½¿ç”¨ç®€å•å®žä¾‹
+$ grep â€˜testâ€™ d*
+æ˜¾ç¤ºæ‰€æœ‰ä»¥då¼€å¤´çš„æ–‡ä»¶ä¸­åŒ…å« testçš„è¡Œã€‚
+$ grep â€˜testâ€™ aa bb cc
+æ˜¾ç¤ºåœ¨aaï¼Œbbï¼Œccæ–‡ä»¶ä¸­åŒ¹é…testçš„è¡Œã€‚
+$ grep â€˜[a-z]\{5\}â€™ aa
+æ˜¾ç¤ºæ‰€æœ‰åŒ…å«æ¯ä¸ªå­—ç¬¦ä¸²è‡³å°‘æœ‰5ä¸ªè¿žç»­å°å†™å­—ç¬¦çš„å­—ç¬¦ä¸²çš„è¡Œã€‚
+$ grep â€˜w\(es\)t.*\1â€² aa
+å¦‚æžœwestè¢«åŒ¹é…ï¼Œåˆ™eså°±è¢«å­˜å‚¨åˆ°å†…å­˜ä¸­ï¼Œå¹¶æ ‡è®°ä¸º1ï¼Œç„¶åŽæœç´¢ä»»æ„ä¸ªå­—ç¬¦(.*)ï¼Œè¿™äº›å­—ç¬¦åŽé¢ç´§è·Ÿç€ å¦å¤–ä¸€ä¸ªes(\1)ï¼Œæ‰¾åˆ°å°±æ˜¾ç¤ºè¯¥è¡Œã€‚å¦‚æžœç”¨egrepæˆ–grep -Eï¼Œå°±ä¸ç”¨â€\â€å·è¿›è¡Œè½¬ä¹‰ï¼Œç›´æŽ¥å†™æˆâ€™w(es)t.*\1â€²å°±å¯ä»¥äº†ã€‚
 
-5.grepÃüÁîÊ¹ÓÃ¸´ÔÓÊµÀý
-¼ÙÉèÄúÕýÔÚ¡¯/usr/src/Linux/Doc¡¯Ä¿Â¼ÏÂËÑË÷´ø×Ö·û ´®¡¯magic¡¯µÄÎÄ¼þ£º
+5.grepå‘½ä»¤ä½¿ç”¨å¤æ‚å®žä¾‹
+å‡è®¾æ‚¨æ­£åœ¨â€™/usr/src/Linux/Docâ€™ç›®å½•ä¸‹æœç´¢å¸¦å­—ç¬¦ ä¸²â€™magicâ€™çš„æ–‡ä»¶ï¼š
 $ grep magic /usr/src/Linux/Doc/*
 sysrq.txt:* How do I enable the magic SysRQ key?
 sysrq.txt:* How do I use the magic SysRQ key?
-ÆäÖÐÎÄ¼þ¡¯sysrp.txt¡¯°üº¬¸Ã×Ö·û´®£¬ÌÖÂÛµÄÊÇ SysRQ µÄ¹¦ÄÜ¡£
-Ä¬ÈÏÇé¿öÏÂ£¬¡¯grep¡¯Ö»ËÑË÷µ±Ç°Ä¿Â¼¡£Èç¹û ´ËÄ¿Â¼ÏÂÓÐÐí¶à×ÓÄ¿Â¼£¬¡¯grep¡¯»áÒÔÈçÏÂÐÎÊ½ÁÐ³ö£º
+å…¶ä¸­æ–‡ä»¶â€™sysrp.txtâ€™åŒ…å«è¯¥å­—ç¬¦ä¸²ï¼Œè®¨è®ºçš„æ˜¯ SysRQ çš„åŠŸèƒ½ã€‚
+é»˜è®¤æƒ…å†µä¸‹ï¼Œâ€™grepâ€™åªæœç´¢å½“å‰ç›®å½•ã€‚å¦‚æžœ æ­¤ç›®å½•ä¸‹æœ‰è®¸å¤šå­ç›®å½•ï¼Œâ€™grepâ€™ä¼šä»¥å¦‚ä¸‹å½¢å¼åˆ—å‡ºï¼š
 grep: sound: Is a directory
-Õâ¿ÉÄÜ»áÊ¹¡¯grep¡¯ µÄÊä³öÄÑÓÚÔÄ¶Á¡£ÕâÀïÓÐÁ½ÖÖ½â¾öµÄ°ì·¨£º
-Ã÷È·ÒªÇóËÑË÷×ÓÄ¿Â¼£ºgrep -r
-»òºöÂÔ×ÓÄ¿Â¼£ºgrep -d skip
-Èç¹ûÓÐºÜ¶à Êä³öÊ±£¬Äú¿ÉÒÔÍ¨¹ý¹ÜµÀ½«Æä×ªµ½¡¯less¡¯ÉÏÔÄ¶Á£º
+è¿™å¯èƒ½ä¼šä½¿â€™grepâ€™ çš„è¾“å‡ºéš¾äºŽé˜…è¯»ã€‚è¿™é‡Œæœ‰ä¸¤ç§è§£å†³çš„åŠžæ³•ï¼š
+æ˜Žç¡®è¦æ±‚æœç´¢å­ç›®å½•ï¼šgrep -r
+æˆ–å¿½ç•¥å­ç›®å½•ï¼šgrep -d skip
+å¦‚æžœæœ‰å¾ˆå¤š è¾“å‡ºæ—¶ï¼Œæ‚¨å¯ä»¥é€šè¿‡ç®¡é“å°†å…¶è½¬åˆ°â€™lessâ€™ä¸Šé˜…è¯»ï¼š
 $ grep magic /usr/src/Linux/Documentation/* | less
-ÕâÑù£¬Äú¾Í¿ÉÒÔ¸ü·½±ãµØÔÄ¶Á¡£
+è¿™æ ·ï¼Œæ‚¨å°±å¯ä»¥æ›´æ–¹ä¾¿åœ°é˜…è¯»ã€‚
 
-ÓÐÒ»µãÒª×¢Òâ£¬Äú±ØÐèÌá¹©Ò»¸öÎÄ¼þ¹ýÂË·½Ê½(ËÑË÷È«²¿ÎÄ¼þµÄ»°ÓÃ *)¡£Èç¹ûÄúÍüÁË£¬¡¯grep¡¯»áÒ»Ö±µÈ×Å£¬Ö±µ½¸Ã³ÌÐò±»ÖÐ¶Ï¡£Èç¹ûÄúÓöµ½ÁËÕâÑùµÄÇé¿ö£¬°´ <CTRL c> £¬È»ºóÔÙÊÔ¡£
+æœ‰ä¸€ç‚¹è¦æ³¨æ„ï¼Œæ‚¨å¿…éœ€æä¾›ä¸€ä¸ªæ–‡ä»¶è¿‡æ»¤æ–¹å¼(æœç´¢å…¨éƒ¨æ–‡ä»¶çš„è¯ç”¨ *)ã€‚å¦‚æžœæ‚¨å¿˜äº†ï¼Œâ€™grepâ€™ä¼šä¸€ç›´ç­‰ç€ï¼Œç›´åˆ°è¯¥ç¨‹åºè¢«ä¸­æ–­ã€‚å¦‚æžœæ‚¨é‡åˆ°äº†è¿™æ ·çš„æƒ…å†µï¼ŒæŒ‰ <CTRL c> ï¼Œç„¶åŽå†è¯•ã€‚
 
-ÏÂÃæ»¹ÓÐÒ»Ð©ÓÐÒâË¼µÄÃüÁîÐÐ²ÎÊý£º
-grep -i pattern files £º²»Çø·Ö´óÐ¡Ð´µØËÑË÷¡£Ä¬ÈÏÇé¿öÇø·Ö´óÐ¡Ð´£¬
-grep -l pattern files £ºÖ»ÁÐ³öÆ¥ÅäµÄÎÄ¼þÃû£¬
-grep -L pattern files £ºÁÐ³ö²»Æ¥ÅäµÄÎÄ¼þÃû£¬
-grep -w pattern files £ºÖ»Æ¥ÅäÕû¸öµ¥´Ê£¬¶ø²»ÊÇ×Ö·û´®µÄÒ»²¿·Ö(ÈçÆ¥Åä¡¯magic¡¯£¬¶ø²»ÊÇ¡¯magical¡¯)£¬
-grep -C number pattern files £ºÆ¥ÅäµÄÉÏÏÂÎÄ·Ö±ðÏÔÊ¾[number]ÐÐ£¬
-grep pattern1 | pattern2 files £ºÏÔÊ¾Æ¥Åä pattern1 »ò pattern2 µÄÐÐ£¬
-grep pattern1 files | grep pattern2 £ºÏÔÊ¾¼ÈÆ¥Åä pattern1 ÓÖÆ¥Åä pattern2 µÄÐÐ¡£
+ä¸‹é¢è¿˜æœ‰ä¸€äº›æœ‰æ„æ€çš„å‘½ä»¤è¡Œå‚æ•°ï¼š
+grep -i pattern files ï¼šä¸åŒºåˆ†å¤§å°å†™åœ°æœç´¢ã€‚é»˜è®¤æƒ…å†µåŒºåˆ†å¤§å°å†™ï¼Œ
+grep -l pattern files ï¼šåªåˆ—å‡ºåŒ¹é…çš„æ–‡ä»¶åï¼Œ
+grep -L pattern files ï¼šåˆ—å‡ºä¸åŒ¹é…çš„æ–‡ä»¶åï¼Œ
+grep -w pattern files ï¼šåªåŒ¹é…æ•´ä¸ªå•è¯ï¼Œè€Œä¸æ˜¯å­—ç¬¦ä¸²çš„ä¸€éƒ¨åˆ†(å¦‚åŒ¹é…â€™magicâ€™ï¼Œè€Œä¸æ˜¯â€™magicalâ€™)ï¼Œ
+grep -C number pattern files ï¼šåŒ¹é…çš„ä¸Šä¸‹æ–‡åˆ†åˆ«æ˜¾ç¤º[number]è¡Œï¼Œ
+grep pattern1 | pattern2 files ï¼šæ˜¾ç¤ºåŒ¹é… pattern1 æˆ– pattern2 çš„è¡Œï¼Œ
+grep pattern1 files | grep pattern2 ï¼šæ˜¾ç¤ºæ—¢åŒ¹é… pattern1 åˆåŒ¹é… pattern2 çš„è¡Œã€‚
 
-grep -n pattern files  ¼´¿ÉÏÔÊ¾ÐÐºÅÐÅÏ¢
+grep -n pattern files  å³å¯æ˜¾ç¤ºè¡Œå·ä¿¡æ¯
 
-grep -c pattern files  ¼´¿É²éÕÒ×ÜÐÐÊý
+grep -c pattern files  å³å¯æŸ¥æ‰¾æ€»è¡Œæ•°
 
-ÕâÀï»¹ÓÐÐ©ÓÃÓÚËÑË÷µÄÌØÊâ·ûºÅ£º
-\< ºÍ \> ·Ö±ð±ê×¢µ¥´ÊµÄ¿ªÊ¼Óë½áÎ²¡£
-ÀýÈç£º
-grep man * »áÆ¥Åä ¡®Batman¡¯¡¢¡¯manic¡¯¡¢¡¯man¡¯µÈ£¬
-grep ¡®\<man¡¯ * Æ¥Åä¡¯manic¡¯ºÍ¡¯man¡¯£¬µ«²»ÊÇ¡¯Batman¡¯£¬
-grep ¡®\<man\>¡¯ Ö»Æ¥Åä¡¯man¡¯£¬¶ø²»ÊÇ¡¯Batman¡¯»ò¡¯manic¡¯µÈÆäËûµÄ×Ö·û´®¡£
-¡®^¡¯£ºÖ¸Æ¥ÅäµÄ×Ö·û´®ÔÚÐÐÊ×£¬
-¡®$¡¯£ºÖ¸Æ¥ÅäµÄ×Ö·û´®ÔÚÐÐ Î²£¬
-
-
+è¿™é‡Œè¿˜æœ‰äº›ç”¨äºŽæœç´¢çš„ç‰¹æ®Šç¬¦å·ï¼š
+\< å’Œ \> åˆ†åˆ«æ ‡æ³¨å•è¯çš„å¼€å§‹ä¸Žç»“å°¾ã€‚
+ä¾‹å¦‚ï¼š
+grep man * ä¼šåŒ¹é… â€˜Batmanâ€™ã€â€™manicâ€™ã€â€™manâ€™ç­‰ï¼Œ
+grep â€˜\<manâ€™ * åŒ¹é…â€™manicâ€™å’Œâ€™manâ€™ï¼Œä½†ä¸æ˜¯â€™Batmanâ€™ï¼Œ
+grep â€˜\<man\>â€™ åªåŒ¹é…â€™manâ€™ï¼Œè€Œä¸æ˜¯â€™Batmanâ€™æˆ–â€™manicâ€™ç­‰å…¶ä»–çš„å­—ç¬¦ä¸²ã€‚
+â€˜^â€™ï¼šæŒ‡åŒ¹é…çš„å­—ç¬¦ä¸²åœ¨è¡Œé¦–ï¼Œ
+â€˜$â€™ï¼šæŒ‡åŒ¹é…çš„å­—ç¬¦ä¸²åœ¨è¡Œ å°¾ï¼Œ
 
 
 
-Grep ÃüÁî ÓÃ·¨´óÈ«
 
-1¡¢ ²ÎÊý£º 
--I £ººöÂÔ´óÐ¡Ð´ 
--c £º´òÓ¡Æ¥ÅäµÄÐÐÊý 
--l £º´Ó¶à¸öÎÄ¼þÖÐ²éÕÒ°üº¬Æ¥ÅäÏî 
--v £º²éÕÒ²»°üº¬Æ¥ÅäÏîµÄÐÐ 
--n£º´òÓ¡°üº¬Æ¥ÅäÏîµÄÐÐºÍÐÐ±ê 
 
-2¡¢RE£¨ÕýÔò±í´ïÊ½£© 
-\ ºöÂÔÕýÔò±í´ïÊ½ÖÐÌØÊâ×Ö·ûµÄÔ­ÓÐº¬Òå 
-^ Æ¥ÅäÕýÔò±í´ïÊ½µÄ¿ªÊ¼ÐÐ 
-$ Æ¥ÅäÕýÔò±í´ïÊ½µÄ½áÊøÐÐ 
-\< ´ÓÆ¥ÅäÕýÔò±í´ïÊ½µÄÐÐ¿ªÊ¼ 
-\> µ½Æ¥ÅäÕýÔò±í´ïÊ½µÄÐÐ½áÊø 
-[ ] µ¥¸ö×Ö·û£»Èç[A] ¼´A·ûºÏÒªÇó 
-[ - ] ·¶Î§ £»Èç[A-Z]¼´A£¬B£¬CÒ»Ö±µ½Z¶¼·ûºÏÒªÇó 
-. ËùÓÐµÄµ¥¸ö×Ö·û 
-* ËùÓÐ×Ö·û£¬³¤¶È¿ÉÒÔÎª0 
+Grep å‘½ä»¤ ç”¨æ³•å¤§å…¨
 
-3¡¢¾ÙÀý 
+1ã€ å‚æ•°ï¼š 
+-I ï¼šå¿½ç•¥å¤§å°å†™ 
+-c ï¼šæ‰“å°åŒ¹é…çš„è¡Œæ•° 
+-l ï¼šä»Žå¤šä¸ªæ–‡ä»¶ä¸­æŸ¥æ‰¾åŒ…å«åŒ¹é…é¡¹ 
+-v ï¼šæŸ¥æ‰¾ä¸åŒ…å«åŒ¹é…é¡¹çš„è¡Œ 
+-nï¼šæ‰“å°åŒ…å«åŒ¹é…é¡¹çš„è¡Œå’Œè¡Œæ ‡ 
+
+2ã€REï¼ˆæ­£åˆ™è¡¨è¾¾å¼ï¼‰ 
+\ å¿½ç•¥æ­£åˆ™è¡¨è¾¾å¼ä¸­ç‰¹æ®Šå­—ç¬¦çš„åŽŸæœ‰å«ä¹‰ 
+^ åŒ¹é…æ­£åˆ™è¡¨è¾¾å¼çš„å¼€å§‹è¡Œ 
+$ åŒ¹é…æ­£åˆ™è¡¨è¾¾å¼çš„ç»“æŸè¡Œ 
+\< ä»ŽåŒ¹é…æ­£åˆ™è¡¨è¾¾å¼çš„è¡Œå¼€å§‹ 
+\> åˆ°åŒ¹é…æ­£åˆ™è¡¨è¾¾å¼çš„è¡Œç»“æŸ 
+[ ] å•ä¸ªå­—ç¬¦ï¼›å¦‚[A] å³Aç¬¦åˆè¦æ±‚ 
+[ - ] èŒƒå›´ ï¼›å¦‚[A-Z]å³Aï¼ŒBï¼ŒCä¸€ç›´åˆ°Zéƒ½ç¬¦åˆè¦æ±‚ 
+. æ‰€æœ‰çš„å•ä¸ªå­—ç¬¦ 
+* æ‰€æœ‰å­—ç¬¦ï¼Œé•¿åº¦å¯ä»¥ä¸º0 
+
+3ã€ä¸¾ä¾‹ 
 # ps -ef | grep in.telnetd 
 root 19955 181 0 13:43:53 ? 0:00 in.telnetd 
 
-# more size.txt sizeÎÄ¼þµÄÄÚÈÝ 
+# more size.txt sizeæ–‡ä»¶çš„å†…å®¹ 
 b124230 
 b034325 
 a081016 
@@ -702,7 +702,7 @@ M45678
 B103303 
 BADc2345 
 
-# more size.txt | grep '[a-b]' ·¶Î§ £»Èç[A-Z]¼´A£¬B£¬CÒ»Ö±µ½Z¶¼·ûºÏÒªÇó 
+# more size.txt | grep '[a-b]' èŒƒå›´ ï¼›å¦‚[A-Z]å³Aï¼ŒBï¼ŒCä¸€ç›´åˆ°Zéƒ½ç¬¦åˆè¦æ±‚ 
 b124230 
 b034325 
 a081016 
@@ -729,7 +729,7 @@ M45678
 B103303 
 BADc2345 
 
-# more size.txt | grep 'b' µ¥¸ö×Ö·û£»Èç[A] ¼´A·ûºÏÒªÇó 
+# more size.txt | grep 'b' å•ä¸ªå­—ç¬¦ï¼›å¦‚[A] å³Aç¬¦åˆè¦æ±‚ 
 b124230 
 b034325 
 b103303 
@@ -755,7 +755,7 @@ lp::8:root,lp,adm
 nuucp::9:root,nuucp 
 daemon::12:root,daemon 
 
-# grep '^root' /etc/group Æ¥ÅäÕýÔò±í´ïÊ½µÄ¿ªÊ¼ÐÐ 
+# grep '^root' /etc/group åŒ¹é…æ­£åˆ™è¡¨è¾¾å¼çš„å¼€å§‹è¡Œ 
 root::0:root 
 
 # grep 'uucp' /etc/group 
@@ -765,17 +765,17 @@ nuucp::9:root,nuucp
 # grep '\<uucp' /etc/group 
 uucp::5:root,uucp 
 
-# grep 'root$' /etc/group Æ¥ÅäÕýÔò±í´ïÊ½µÄ½áÊøÐÐ 
+# grep 'root$' /etc/group åŒ¹é…æ­£åˆ™è¡¨è¾¾å¼çš„ç»“æŸè¡Œ 
 root::0:root 
 mail::6:root 
 
-# more size.txt | grep -i 'b1..*3' -i £ººöÂÔ´óÐ¡Ð´ 
+# more size.txt | grep -i 'b1..*3' -i ï¼šå¿½ç•¥å¤§å°å†™ 
 
 b124230 
 b103303 
 B103303 
 
-# more size.txt | grep -iv 'b1..*3' -v £º²éÕÒ²»°üº¬Æ¥ÅäÏîµÄÐÐ 
+# more size.txt | grep -iv 'b1..*3' -v ï¼šæŸ¥æ‰¾ä¸åŒ…å«åŒ¹é…é¡¹çš„è¡Œ 
 
 b034325 
 a081016 
@@ -798,7 +798,7 @@ BADc2345
 
 # grep '$' /etc/init.d/nfs.server | wc -l 
 128 
-# grep '\$' /etc/init.d/nfs.server | wc ¨Cl ºöÂÔÕýÔò±í´ïÊ½ÖÐÌØÊâ×Ö·ûµÄÔ­ÓÐº¬Òå 
+# grep '\$' /etc/init.d/nfs.server | wc â€“l å¿½ç•¥æ­£åˆ™è¡¨è¾¾å¼ä¸­ç‰¹æ®Šå­—ç¬¦çš„åŽŸæœ‰å«ä¹‰ 
 
 15 
 # grep '\$' /etc/init.d/nfs.server 
@@ -843,67 +843,67 @@ the test file
 
 ==================================================================
 
-1,¼ò½é
-Ê¹ÓÃÕýÔò±í´ïÊ½µÄÒ»¸ö¶àÓÃÍ¾ÎÄ±¾ËÑË÷¹¤¾ß.Õâ¸öphp?name=%C3%FC%C1%EE" onclick="tagshow(event)" class="t_tag">ÃüÁî±¾À´ÊÇedÐÐ±à¼­Æ÷ÖÐµÄÒ»¸öphp?name=%C3%FC%C1%EE" onclick="tagshow(event)" class="t_tag">ÃüÁî/¹ýÂËÆ÷:
+1,ç®€ä»‹
+ä½¿ç”¨æ­£åˆ™è¡¨è¾¾å¼çš„ä¸€ä¸ªå¤šç”¨é€”æ–‡æœ¬æœç´¢å·¥å…·.è¿™ä¸ªphp?name=%C3%FC%C1%EE" onclick="tagshow(event)" class="t_tag">å‘½ä»¤æœ¬æ¥æ˜¯edè¡Œç¼–è¾‘å™¨ä¸­çš„ä¸€ä¸ªphp?name=%C3%FC%C1%EE" onclick="tagshow(event)" class="t_tag">å‘½ä»¤/è¿‡æ»¤å™¨:
         g/re/p -- global - regular expression - print.
-»ù±¾¸ñÊ½
+åŸºæœ¬æ ¼å¼
 grep pattern [file...]
-(1)grep ËÑË÷×Ö·û´® [filename]
-(2)grep ÕýÔò±í´ïÊ½ [filename]
-ÔÚÎÄ¼þÖÐËÑË÷ËùÓÐ pattern ³öÏÖµÄÎ»ÖÃ, pattern ¼È¿ÉÒÔÊÇÒªËÑË÷µÄ×Ö·û´®,Ò²¿ÉÒÔÊÇÒ»¸öÕýÔò±í´ïÊ½.
-×¢Òâ£ºÔÚÊäÈëÒªËÑË÷µÄ×Ö·û´®Ê±×îºÃÊ¹ÓÃË«ÒýºÅ/¶øÔÚÄ£Ê½Æ¥ÅäÊ¹ÓÃÕýÔò±í´ïÊ½Ê±£¬×¢ÒâÊ¹ÓÃµ¥ÒýºÅ
+(1)grep æœç´¢å­—ç¬¦ä¸² [filename]
+(2)grep æ­£åˆ™è¡¨è¾¾å¼ [filename]
+åœ¨æ–‡ä»¶ä¸­æœç´¢æ‰€æœ‰ pattern å‡ºçŽ°çš„ä½ç½®, pattern æ—¢å¯ä»¥æ˜¯è¦æœç´¢çš„å­—ç¬¦ä¸²,ä¹Ÿå¯ä»¥æ˜¯ä¸€ä¸ªæ­£åˆ™è¡¨è¾¾å¼.
+æ³¨æ„ï¼šåœ¨è¾“å…¥è¦æœç´¢çš„å­—ç¬¦ä¸²æ—¶æœ€å¥½ä½¿ç”¨åŒå¼•å·/è€Œåœ¨æ¨¡å¼åŒ¹é…ä½¿ç”¨æ­£åˆ™è¡¨è¾¾å¼æ—¶ï¼Œæ³¨æ„ä½¿ç”¨å•å¼•å·
 
-2,grepµÄÑ¡Ïî
-    -c Ö»Êä³öÆ¥ÅäÐÐµÄ¼ÆÊý
-    -i ²»Çø·Ö´óÐ¡Ð´£¨ÓÃÓÚµ¥×Ö·û£©
-    -n ÏÔÊ¾Æ¥ÅäµÄÐÐºÅ
-    -v ²»ÏÔÊ¾²»°üº¬Æ¥ÅäÎÄ±¾µÄËùÒÔÓÐÐÐ
-    -s ²»ÏÔÊ¾´íÎóÐÅÏ¢
-    -E Ê¹ÓÃÀ©Õ¹ÕýÔò±í´ïÊ½
-    ¸ü¶àµÄÑ¡ÏîÇë²é¿´£ºman grep
+2,grepçš„é€‰é¡¹
+    -c åªè¾“å‡ºåŒ¹é…è¡Œçš„è®¡æ•°
+    -i ä¸åŒºåˆ†å¤§å°å†™ï¼ˆç”¨äºŽå•å­—ç¬¦ï¼‰
+    -n æ˜¾ç¤ºåŒ¹é…çš„è¡Œå·
+    -v ä¸æ˜¾ç¤ºä¸åŒ…å«åŒ¹é…æ–‡æœ¬çš„æ‰€ä»¥æœ‰è¡Œ
+    -s ä¸æ˜¾ç¤ºé”™è¯¯ä¿¡æ¯
+    -E ä½¿ç”¨æ‰©å±•æ­£åˆ™è¡¨è¾¾å¼
+    æ›´å¤šçš„é€‰é¡¹è¯·æŸ¥çœ‹ï¼šman grep
 
-3,³£ÓÃgrepÊµÀý
+3,å¸¸ç”¨grepå®žä¾‹
 
-(1)¶à¸öÎÄ¼þ²éÑ¯
-    grep "sort" *.doc       #¼ûÎÄ¼þÃûµÄÆ¥Åä
+(1)å¤šä¸ªæ–‡ä»¶æŸ¥è¯¢
+    grep "sort" *.doc       #è§æ–‡ä»¶åçš„åŒ¹é…
 
-(2)ÐÐÆ¥Åä:Êä³öÆ¥ÅäÐÐµÄ¼ÆÊý
-    grep -c "48" data.doc   #Êä³öÎÄµµÖÐº¬ÓÐ48×Ö·ûµÄÐÐÊý
+(2)è¡ŒåŒ¹é…:è¾“å‡ºåŒ¹é…è¡Œçš„è®¡æ•°
+    grep -c "48" data.doc   #è¾“å‡ºæ–‡æ¡£ä¸­å«æœ‰48å­—ç¬¦çš„è¡Œæ•°
 
-(3)ÏÔÊ¾Æ¥ÅäÐÐºÍÐÐÊý
-    grep -n "48" data.doc       #ÏÔÊ¾ËùÓÐÆ¥Åä48µÄÐÐºÍÐÐºÅ
+(3)æ˜¾ç¤ºåŒ¹é…è¡Œå’Œè¡Œæ•°
+    grep -n "48" data.doc       #æ˜¾ç¤ºæ‰€æœ‰åŒ¹é…48çš„è¡Œå’Œè¡Œå·
 
-(4)ÏÔÊ¾·ÇÆ¥ÅäµÄÐÐ
-    grep -vn "48" data.doc      #Êä³öËùÓÐ²»°üº¬48µÄÐÐ
+(4)æ˜¾ç¤ºéžåŒ¹é…çš„è¡Œ
+    grep -vn "48" data.doc      #è¾“å‡ºæ‰€æœ‰ä¸åŒ…å«48çš„è¡Œ
 
-(4)ÏÔÊ¾·ÇÆ¥ÅäµÄÐÐ
-    grep -vn "48" data.doc      #Êä³öËùÓÐ²»°üº¬48µÄÐÐ
+(4)æ˜¾ç¤ºéžåŒ¹é…çš„è¡Œ
+    grep -vn "48" data.doc      #è¾“å‡ºæ‰€æœ‰ä¸åŒ…å«48çš„è¡Œ
 
-(5)´óÐ¡Ð´Ãô¸Ð
-    grep -i "ab" data.doc       #Êä³öËùÓÐº¬ÓÐab»òAbµÄ×Ö·û´®µÄÐÐ
+(5)å¤§å°å†™æ•æ„Ÿ
+    grep -i "ab" data.doc       #è¾“å‡ºæ‰€æœ‰å«æœ‰abæˆ–Abçš„å­—ç¬¦ä¸²çš„è¡Œ
 
-4, ÕýÔò±í´ïÊ½µÄÓ¦ÓÃ
+4, æ­£åˆ™è¡¨è¾¾å¼çš„åº”ç”¨
 
-(1)ÕýÔò±í´ïÊ½µÄÓ¦ÓÃ (×¢Òâ£º×îºÃ°ÑÕýÔò±í´ïÊ½ÓÃµ¥ÒýºÅÀ¨ÆðÀ´)
-    grep '[239].' data.doc      #Êä³öËùÓÐº¬ÓÐÒÔ2,3»ò9¿ªÍ·µÄ£¬²¢ÇÒÊÇÁ½¸öÊý×ÖµÄÐÐ
+(1)æ­£åˆ™è¡¨è¾¾å¼çš„åº”ç”¨ (æ³¨æ„ï¼šæœ€å¥½æŠŠæ­£åˆ™è¡¨è¾¾å¼ç”¨å•å¼•å·æ‹¬èµ·æ¥)
+    grep '[239].' data.doc      #è¾“å‡ºæ‰€æœ‰å«æœ‰ä»¥2,3æˆ–9å¼€å¤´çš„ï¼Œå¹¶ä¸”æ˜¯ä¸¤ä¸ªæ•°å­—çš„è¡Œ
 
-(2)²»Æ¥Åä²âÊÔ
-    grep '^[^48]' data.doc      #²»Æ¥ÅäÐÐÊ×ÊÇ48µÄÐÐ
+(2)ä¸åŒ¹é…æµ‹è¯•
+    grep '^[^48]' data.doc      #ä¸åŒ¹é…è¡Œé¦–æ˜¯48çš„è¡Œ
 
-(3)Ê¹ÓÃÀ©Õ¹Ä£Ê½Æ¥Åä
+(3)ä½¿ç”¨æ‰©å±•æ¨¡å¼åŒ¹é…
     grep -E '219|216' data.doc
 
 (4) ...
-    ÕâÐèÒªÔÚÊµ¼ùÖÐ²»¶ÏÓ¦ÓÃºÍ×Ü½á£¬ÊìÁ·ÕÆÎÕÕýÔò±í´ïÊ½¡£
+    è¿™éœ€è¦åœ¨å®žè·µä¸­ä¸æ–­åº”ç”¨å’Œæ€»ç»“ï¼Œç†Ÿç»ƒæŽŒæ¡æ­£åˆ™è¡¨è¾¾å¼ã€‚
 
-5, Ê¹ÓÃÀàÃû
-¿ÉÒÔÊ¹ÓÃ¹ú¼ÊÄ£Ê½Æ¥ÅäµÄÀàÃû£º
+5, ä½¿ç”¨ç±»å
+å¯ä»¥ä½¿ç”¨å›½é™…æ¨¡å¼åŒ¹é…çš„ç±»åï¼š
 [[:upper:]]   [A-Z]
 [[:lower:]]   [a-z]
 [[:digit:]]   [0-9]
 [[:alnum:]]   [0-9a-zA-Z]
-[[:space:]]   ¿Õ¸ñ»òtab
+[[:space:]]   ç©ºæ ¼æˆ–tab
 [[:alpha:]]   [a-zA-Z]
 
-(1)Ê¹ÓÃ
-    grep '5[[:upper:]][[:upper:]]' data.doc     #²éÑ¯ÒÔ5¿ªÍ·ÒÔÁ½¸ö´óÐ´×ÖÄ¸½áÎ²µÄÐÐ
+(1)ä½¿ç”¨
+    grep '5[[:upper:]][[:upper:]]' data.doc     #æŸ¥è¯¢ä»¥5å¼€å¤´ä»¥ä¸¤ä¸ªå¤§å†™å­—æ¯ç»“å°¾çš„è¡Œ
