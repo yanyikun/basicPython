@@ -1,0 +1,61 @@
+编程语言中的转义字符（通用）：
+
+Escape	What it does.	含义 
+\\	Backslash ()	反斜杠
+\'	Single-quote (')	单引号
+\"	Double-quote (")	双引号
+\a	ASCII bell (BEL)	响铃符
+\b	ASCII backspace (BS)	退格符
+\f	ASCII formfeed (FF)	进纸符
+\n	ASCII linefeed (LF)	换行符
+\N{name}	Character named name in the Unicode database (Unicode only)	Unicode数据库中的字符名；name就是它的名字
+\r ASCII	Carriage Return (CR)	回车符
+\t ASCII	Horizontal Tab (TAB)	水平制表符
+\uxxxx	Character with 16-bit hex value xxxx (Unicode only)	值为16位十六进制xxxx的字符
+\Uxxxxxxxx	Character with 32-bit hex value xxxxxxxx (Unicode only)	值为32位十六进制xxxx的字符
+\v	ASCII vertical tab (VT)	垂直制表符
+\ooo	Character with octal value ooo	值为八进制ooo的字符
+\xhh	Character with hex value hh	值为十六进制数hh的字符
+
+
+
+正则中需要转义的字符：
+
+$ ：匹配输入字符串的结尾位置。如果设置了 RegExp 对象的 Multiline 属性，则 $ 也匹配 ‘\n' 或 ‘\r'。要匹配 $ 字符本身，请使用 \$。
+
+( )： 标记一个子表达式的开始和结束位置。子表达式可以获取供以后使用。要匹配这些字符，请使用 \( 和 \)。
+
+*： 匹配前面的子表达式零次或多次。要匹配 * 字符，请使用 \*。
+
++： 匹配前面的子表达式一次或多次。要匹配 + 字符，请使用 \+。
+
+.： 匹配除换行符 \n之外的任何单字符。要匹配 .，请使用 \。
+
+[ ]： 标记一个中括号表达式的开始。要匹配 [，请使用 \[。
+
+?： 匹配前面的子表达式零次或一次，或指明一个非贪婪限定符。要匹配 ? 字符，请使用 \?。
+
+\： 将下一个字符标记为或特殊字符、或原义字符、或向后引用、或八进制转义符。例如， ‘n' 匹配字符 ‘n'。'\n' 匹配换行符。序列 ‘\\' 匹配 “\”，而 ‘\(' 则匹配 “(”。
+
+^： 匹配输入字符串的开始位置，除非在方括号表达式中使用，此时它表示不接受该字符集合。要匹配 ^ 字符本身，请使用 \^。
+
+{ }： 标记限定符表达式的开始。要匹配 {，请使用 \{。
+
+
+
+
+XML中必须进行转义的字符
+
+在读取的时候，解析器会自动将其转换回"&","<",">"等特殊字符，正常来说，只有"<" 字符和"&"字符对于XML来说是严格禁止使用的。 
+需要注意的是： 
+a. 转义序列各字符间不能有空格； 
+b. 转义序列必须以"；"结束； 
+c. 单独的&不被认为是转义开始； 
+d. 区分大小写。 
+
+以下是XML中需要的转义字符:[/size] 
+&(逻辑与)  &amp;        
+<(小于)    &lt;        
+>(大于)    &gt;        
+"(双引号)  &quot;      
+'(单引号)  &apos; [/size]
